@@ -18,6 +18,7 @@
 		354218C41E312A8800A78FA4 /* bembibre.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 354218C31E312A8800A78FA4 /* bembibre.jpg */; };
 		354F1A3D1E3906F100AD4C79 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 354F1A3B1E3906F100AD4C79 /* WebViewController.m */; };
 		354F1A3E1E3906F100AD4C79 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 354F1A3C1E3906F100AD4C79 /* WebViewController.xib */; };
+		357E7E911E3FCDBD00007179 /* ArberTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 357E7E901E3FCDBD00007179 /* ArberTest.m */; };
 		359084521E3FC11500090A3D /* zarate.gif in Resources */ = {isa = PBXBuildFile; fileRef = 359084511E3FC11500090A3D /* zarate.gif */; };
 		359084541E3FC11E00090A3D /* comtesDeChampagne.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 359084531E3FC11E00090A3D /* comtesDeChampagne.jpg */; };
 /* End PBXBuildFile section */
@@ -40,6 +41,8 @@
 		354F1A3A1E3906F100AD4C79 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		354F1A3B1E3906F100AD4C79 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		354F1A3C1E3906F100AD4C79 /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
+		357E7E8F1E3FCDBD00007179 /* ArberTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArberTest.h; sourceTree = "<group>"; };
+		357E7E901E3FCDBD00007179 /* ArberTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArberTest.m; sourceTree = "<group>"; };
 		359084511E3FC11500090A3D /* zarate.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = zarate.gif; sourceTree = "<group>"; };
 		359084531E3FC11E00090A3D /* comtesDeChampagne.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = comtesDeChampagne.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -100,6 +103,8 @@
 			children = (
 				354218AE1E30EEF800A78FA4 /* WineModel.h */,
 				354218AF1E30EEF800A78FA4 /* WineModel.m */,
+				357E7E8F1E3FCDBD00007179 /* ArberTest.h */,
+				357E7E901E3FCDBD00007179 /* ArberTest.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -206,6 +211,7 @@
 			files = (
 				354218B01E30EEF800A78FA4 /* WineModel.m in Sources */,
 				354F1A3D1E3906F100AD4C79 /* WebViewController.m in Sources */,
+				357E7E911E3FCDBD00007179 /* ArberTest.m in Sources */,
 				354218BE1E31224C00A78FA4 /* WineViewController.m in Sources */,
 				354218A21E30E69600A78FA4 /* AppDelegate.m in Sources */,
 				3542189F1E30E69600A78FA4 /* main.m in Sources */,
