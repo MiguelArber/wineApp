@@ -2,7 +2,7 @@
 //  WineModel.m
 //  Baccus
 //
-//  Created by Miguel Arber Mago on 19/1/17.
+//  Created by Miguel Arber Mago on 19/1/2017.
 //  Copyright © 2017 Miguel Arber Mago. All rights reserved.
 //
 
