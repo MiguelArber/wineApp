@@ -1,0 +1,359 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3542189F1E30E69600A78FA4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3542189E1E30E69600A78FA4 /* main.m */; };
+		354218A21E30E69600A78FA4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 354218A11E30E69600A78FA4 /* AppDelegate.m */; };
+		354218A41E30E69600A78FA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 354218A31E30E69600A78FA4 /* Assets.xcassets */; };
+		354218A71E30E69600A78FA4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 354218A51E30E69600A78FA4 /* LaunchScreen.storyboard */; };
+		354218B01E30EEF800A78FA4 /* WineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 354218AF1E30EEF800A78FA4 /* WineModel.m */; };
+		354218BE1E31224C00A78FA4 /* WineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 354218BC1E31224C00A78FA4 /* WineViewController.m */; };
+		354218BF1E31224C00A78FA4 /* WineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 354218BD1E31224C00A78FA4 /* WineViewController.xib */; };
+		354218C11E31291D00A78FA4 /* splitView_score_glass@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 354218C01E31291D00A78FA4 /* splitView_score_glass@2x.png */; };
+		354218C41E312A8800A78FA4 /* bembibre.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 354218C31E312A8800A78FA4 /* bembibre.jpg */; };
+		354F1A3D1E3906F100AD4C79 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 354F1A3B1E3906F100AD4C79 /* WebViewController.m */; };
+		354F1A3E1E3906F100AD4C79 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 354F1A3C1E3906F100AD4C79 /* WebViewController.xib */; };
+		359084521E3FC11500090A3D /* zarate.gif in Resources */ = {isa = PBXBuildFile; fileRef = 359084511E3FC11500090A3D /* zarate.gif */; };
+		359084541E3FC11E00090A3D /* comtesDeChampagne.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 359084531E3FC11E00090A3D /* comtesDeChampagne.jpg */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3542189A1E30E69600A78FA4 /* Baccus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Baccus.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3542189E1E30E69600A78FA4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		354218A01E30E69600A78FA4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		354218A11E30E69600A78FA4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		354218A31E30E69600A78FA4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		354218A61E30E69600A78FA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		354218A81E30E69600A78FA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		354218AE1E30EEF800A78FA4 /* WineModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WineModel.h; sourceTree = "<group>"; };
+		354218AF1E30EEF800A78FA4 /* WineModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WineModel.m; sourceTree = "<group>"; };
+		354218BB1E31224C00A78FA4 /* WineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WineViewController.h; sourceTree = "<group>"; };
+		354218BC1E31224C00A78FA4 /* WineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WineViewController.m; sourceTree = "<group>"; };
+		354218BD1E31224C00A78FA4 /* WineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WineViewController.xib; sourceTree = "<group>"; };
+		354218C01E31291D00A78FA4 /* splitView_score_glass@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splitView_score_glass@2x.png"; sourceTree = "<group>"; };
+		354218C31E312A8800A78FA4 /* bembibre.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bembibre.jpg; sourceTree = "<group>"; };
+		354F1A3A1E3906F100AD4C79 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		354F1A3B1E3906F100AD4C79 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		354F1A3C1E3906F100AD4C79 /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
+		359084511E3FC11500090A3D /* zarate.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = zarate.gif; sourceTree = "<group>"; };
+		359084531E3FC11E00090A3D /* comtesDeChampagne.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = comtesDeChampagne.jpg; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		354218971E30E69600A78FA4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		354218911E30E69600A78FA4 = {
+			isa = PBXGroup;
+			children = (
+				3542189C1E30E69600A78FA4 /* Baccus */,
+				3542189B1E30E69600A78FA4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3542189B1E30E69600A78FA4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3542189A1E30E69600A78FA4 /* Baccus.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3542189C1E30E69600A78FA4 /* Baccus */ = {
+			isa = PBXGroup;
+			children = (
+				354218C21E31293400A78FA4 /* Resources */,
+				354218A01E30E69600A78FA4 /* AppDelegate.h */,
+				354218A11E30E69600A78FA4 /* AppDelegate.m */,
+				354218B11E30EF0000A78FA4 /* Models */,
+				354218B51E3116D600A78FA4 /* Controllers */,
+				354218A31E30E69600A78FA4 /* Assets.xcassets */,
+				354218A51E30E69600A78FA4 /* LaunchScreen.storyboard */,
+				354218A81E30E69600A78FA4 /* Info.plist */,
+				3542189D1E30E69600A78FA4 /* Supporting Files */,
+			);
+			path = Baccus;
+			sourceTree = "<group>";
+		};
+		3542189D1E30E69600A78FA4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3542189E1E30E69600A78FA4 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		354218B11E30EF0000A78FA4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				354218AE1E30EEF800A78FA4 /* WineModel.h */,
+				354218AF1E30EEF800A78FA4 /* WineModel.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		354218B51E3116D600A78FA4 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				354218BB1E31224C00A78FA4 /* WineViewController.h */,
+				354218BC1E31224C00A78FA4 /* WineViewController.m */,
+				354218BD1E31224C00A78FA4 /* WineViewController.xib */,
+				354F1A3A1E3906F100AD4C79 /* WebViewController.h */,
+				354F1A3B1E3906F100AD4C79 /* WebViewController.m */,
+				354F1A3C1E3906F100AD4C79 /* WebViewController.xib */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		354218C21E31293400A78FA4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				359084511E3FC11500090A3D /* zarate.gif */,
+				359084531E3FC11E00090A3D /* comtesDeChampagne.jpg */,
+				354218C31E312A8800A78FA4 /* bembibre.jpg */,
+				354218C01E31291D00A78FA4 /* splitView_score_glass@2x.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		354218991E30E69600A78FA4 /* Baccus */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 354218AB1E30E69600A78FA4 /* Build configuration list for PBXNativeTarget "Baccus" */;
+			buildPhases = (
+				354218961E30E69600A78FA4 /* Sources */,
+				354218971E30E69600A78FA4 /* Frameworks */,
+				354218981E30E69600A78FA4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Baccus;
+			productName = Baccus;
+			productReference = 3542189A1E30E69600A78FA4 /* Baccus.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		354218921E30E69600A78FA4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Miguel Arber Mago";
+				TargetAttributes = {
+					354218991E30E69600A78FA4 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 2CXHYKZRNN;
+					};
+				};
+			};
+			buildConfigurationList = 354218951E30E69600A78FA4 /* Build configuration list for PBXProject "Baccus" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 354218911E30E69600A78FA4;
+			productRefGroup = 3542189B1E30E69600A78FA4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				354218991E30E69600A78FA4 /* Baccus */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		354218981E30E69600A78FA4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				354218C11E31291D00A78FA4 /* splitView_score_glass@2x.png in Resources */,
+				354218A41E30E69600A78FA4 /* Assets.xcassets in Resources */,
+				354218BF1E31224C00A78FA4 /* WineViewController.xib in Resources */,
+				354F1A3E1E3906F100AD4C79 /* WebViewController.xib in Resources */,
+				359084541E3FC11E00090A3D /* comtesDeChampagne.jpg in Resources */,
+				359084521E3FC11500090A3D /* zarate.gif in Resources */,
+				354218C41E312A8800A78FA4 /* bembibre.jpg in Resources */,
+				354218A71E30E69600A78FA4 /* LaunchScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		354218961E30E69600A78FA4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				354218B01E30EEF800A78FA4 /* WineModel.m in Sources */,
+				354F1A3D1E3906F100AD4C79 /* WebViewController.m in Sources */,
+				354218BE1E31224C00A78FA4 /* WineViewController.m in Sources */,
+				354218A21E30E69600A78FA4 /* AppDelegate.m in Sources */,
+				3542189F1E30E69600A78FA4 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		354218A51E30E69600A78FA4 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				354218A61E30E69600A78FA4 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		354218A91E30E69600A78FA4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		354218AA1E30E69600A78FA4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		354218AC1E30E69600A78FA4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Baccus/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ArberMago.Baccus;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		354218AD1E30E69600A78FA4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Baccus/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ArberMago.Baccus;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		354218951E30E69600A78FA4 /* Build configuration list for PBXProject "Baccus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				354218A91E30E69600A78FA4 /* Debug */,
+				354218AA1E30E69600A78FA4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		354218AB1E30E69600A78FA4 /* Build configuration list for PBXNativeTarget "Baccus" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				354218AC1E30E69600A78FA4 /* Debug */,
+				354218AD1E30E69600A78FA4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 354218921E30E69600A78FA4 /* Project object */;
+}
