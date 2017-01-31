@@ -15,8 +15,9 @@
 @property(readonly, nonatomic) int whiteWineCount;
 @property(readonly, nonatomic) int otherWineCount;
 
--(WineModel *) redWineAtIndex: (int) index;
--(WineModel *) whiteWineAtIndex: (int) index;
--(WineModel *) otherWineAtIndex: (int) index;
+
+-(WineModel *) redWineAtIndex: (int) index; //Devuelve el vino tinto en la posición index
+-(WineModel *) whiteWineAtIndex: (int) index;//Devuelve el vino blanco en la posición index
+-(WineModel *) otherWineAtIndex: (int) index;//Devuelve el vino otro en la posición index
 
 @end

@@ -40,7 +40,7 @@
     
 }
 
--(id) init {
+-(id) init { //Meto vinos a capón
     if(self == [super init]) {
         // Creamos tres modelos de vino: tinto, blanco y un champán
         WineModel *tinto = [WineModel wineWithName:@"Bembibre"
@@ -83,7 +83,7 @@
 
 -(WineModel *) redWineAtIndex: (int) index {
     
-    return [self.redWines objectAtIndex:index];
+    return [self.redWines objectAtIndex:index]; //Devuelve el objeto en la posición index
     
 }
 

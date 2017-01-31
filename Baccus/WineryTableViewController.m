@@ -57,6 +57,8 @@
 
 - (NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     
+    //Mostramos el título de las tres distintas secciones de la tableView
+    
     if(section == RED_WINE_SECTION) {
         return @"Red wines:";
     } else if(section == WHITE_WINE_SECTION) {
@@ -74,24 +76,26 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
+    //Devolvemos el numero de vinos de cada tipo (que hay en cada sección) para ello usamos el método redWineCount
+    
     if(section == RED_WINE_SECTION) {
         return [self.model redWineCount];
     } else if(section == WHITE_WINE_SECTION) {
         return [self.model whiteWineCount];
     } else {
-            return [self.model otherWineCount];
-        }
+        return [self.model otherWineCount];
+    }
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"Cell"; //Indentificador de celda
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: CellIdentifier];
     
-    if(cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleSubtitle
+    if(cell == nil) { //Si la celda está vacía
+        cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleSubtitle //Queremos una vista con titulo y subtitulo
                                       reuseIdentifier: CellIdentifier];
     }
     
@@ -100,18 +104,18 @@
     WineModel *wine = nil;
     
     if(indexPath.section == RED_WINE_SECTION) {
-        wine = [self.model redWineAtIndex: (int) indexPath.row];
+        wine = [self.model redWineAtIndex: (int) indexPath.row]; //Obtenemos el vino tinto correspondiente
     } else if(indexPath.section == WHITE_WINE_SECTION) {
-        wine = [self.model whiteWineAtIndex: (int) indexPath.row];
+        wine = [self.model whiteWineAtIndex: (int) indexPath.row];  //Obtenemos el vino blanco correspondiente
     } else {
-        wine = [self.model otherWineAtIndex: (int) indexPath.row];
+        wine = [self.model otherWineAtIndex: (int) indexPath.row]; //Obtenemos el vino otro correspondiente
     }
     
     //Sincronizamos la celda (vista) con el modelo
     
-    cell.imageView.image = wine.photo;
-    cell.textLabel.text = wine.name;
-    cell.detailTextLabel.text = wine.wineCompanyName;
+    cell.imageView.image = wine.photo; //Foto
+    cell.textLabel.text = wine.name; //Título (nombre del vino)
+    cell.detailTextLabel.text = wine.wineCompanyName; //Subtítulo (bodega)
     
     // Devuelvo la celda...
     return cell;
@@ -126,6 +130,8 @@
     //Averiguamos de qué vino se trata
     WineModel *wine = nil;
     
+    //Obtenemos el vino correspondiente
+    
     if(indexPath.section == RED_WINE_SECTION) {
         wine = [self.model redWineAtIndex:indexPath.row];
     } else if (indexPath.section ==WHITE_WINE_SECTION) {
@@ -138,8 +144,8 @@
     WineViewController *wineVC = [[WineViewController alloc] initWithModel:wine];
     
     //Hacemos un push al navigation controller en el que estamos
-    [self.navigationController pushViewController: wineVC
-                                         animated: YES];
+    [self.navigationController pushViewController: wineVC //Llamamos a la vista wineVC y le pasamos un vino para que se muestre en una NavBar
+                                         animated: YES]; //Con animación, of course!
 }
 
 

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "WineryModel.h" //Importamos el modelo
 
+//Definimos como constantes tres secciones de la tableView
 #define RED_WINE_SECTION 0
 #define WHITE_WINE_SECTION 1
 #define OTHER_WINE_SECTION 2
