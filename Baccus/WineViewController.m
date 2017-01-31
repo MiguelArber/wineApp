@@ -7,7 +7,7 @@
 //
 
 #import "WineViewController.h"
-#import "WebViewCOntroller.h"
+#import "WebViewController.h"
 
 @implementation WineViewController
 
@@ -27,7 +27,7 @@
     [super viewWillAppear:animated];
     [self syncModelWithView]; //Llamámos al método definido más abajo para la sincronización con el modelo
     self.edgesForExtendedLayout =UIRectEdgeNone; //Evitamos que los elementos se muestren debajo de la NavBar
-    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0.5 green:0 blue:0.13 alpha:1];//Cambiamos el color de la barra de navegación (en este caso cambiará sólo el título).
+    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:1];//Cambiamos el color de la barra de navegación (en este caso cambiará sólo el título).
     
 }
 
@@ -47,7 +47,7 @@
 
 #pragma mark - Utilities
 
--(void) syncModelWithView { //Sincronizamos con el modelo
+-(void) syncModelWithView { //Sincronizamos la vista con el modelo
     
     self.nameLabel.text = self.model.name;
     self.typeLabel.text = self.model.type;

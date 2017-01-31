@@ -10,6 +10,8 @@
 #import "WineModel.h"
 #import "WineViewController.h"
 #import "WebViewController.h"
+#import "WineryModel.h"
+#import "WineryTableViewController.h"
 
 @interface AppDelegate ()
 
@@ -21,73 +23,19 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    self.window.rootViewController = [[UIViewController alloc] init]; //Añado esta línea al no tener un controldor definido de momento
+    //1. Creamos el modelo
+    WineryModel *winery = [[WineryModel alloc] init];
     
-    // Creamos tres modelos de vino: tinto, blanco y un champán
-    WineModel *tinto = [WineModel wineWithName:@"Bembibre"
-                                        wineCompanyName:@"Dominio de Tares"
-                                                   type:@"tinto"
-                                                 origin:@"El Bierzo"
-                                                 grapes:@[@"Mencía"]
-                                         wineCompanyWeb:[NSURL URLWithString:@"http://www.dominiodetares.com/index.php/es/vinos/baltos/74-bembibrevinos"]
-                                                  notes:@"Este vino muestra toda la complejidad y la elegancia de la variedad Mencía. En fase visual luce un color rojo picota muy cubierto con tonalidades violáceas en el menisco. En nariz aparecen recuerdos frutales muy intensos de frutas rojas (frambuesa, cereza) y una potente ciruela negra, así como tonos florales de la gama de las rosas y violetas, vegetales muy elegantes y complementarios, hojarasca verde, tabaco y maderas aromáticas (sándalo) que le brindan un toque ciertamente perfumado."
-                                                 rating:5
-                                                  photo:[UIImage imageNamed:@"bembibre.jpg"]];
+    //2. Creamos el controlador
+    WineryTableViewController *wineryVC = [[WineryTableViewController alloc] initWithModel:winery style:UITableViewStylePlain];
+
     
-    WineModel *albarinno = [WineModel wineWithName:@"Zárate"
-                                         wineCompanyName:@"Zárate"
-                                                    type:@"white"
-                                                  origin:@"Rias Bajas"
-                                                  grapes:@[@"Albariño"]
-                                          wineCompanyWeb:[NSURL URLWithString:@"http://www.albarino-zarate.com"]
-                                                   notes:@"El albariño Zarate es un vino blanco monovarietal que pertenece a la Denominación de Origen Rías Baixas. Considerado por la crítica especializada como uno de los grandes vinos blancos del mundo, el albariño ya es todo un mito."
-                                                  rating:4
-                                                   photo:[UIImage imageNamed:@"zarate.gif"]];
+    //3. Creamos un combinador (navigation bar)
+    UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:wineryVC];
     
-    WineModel *champagne = [WineModel wineWithName:@"Comtes de Champagne"
-                                         wineCompanyName:@"Champagne Taittinger"
-                                                    type:@"other"
-                                                  origin:@"Champagne"
-                                                  grapes:@[@"Chardonnay"]
-                                          wineCompanyWeb:[NSURL URLWithString:@"http://www.taittinger.fr"]
-                                                   notes:@"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac nunc purus. Curabitur eu velit mauris. Curabitur magna nisi, ullamcorper ac bibendum ac, laoreet et justo. Praesent vitae tortor quis diam luctus condimentum. Suspendisse potenti. In magna elit, interdum sit amet facilisis dictum, bibendum nec libero. Maecenas pellentesque posuere vehicula. Vivamus eget nisl urna, quis egestas sem. Vivamus at venenatis quam. Sed eu nulla a orci fringilla pulvinar ut eu diam. Morbi nibh nibh, bibendum at laoreet egestas, scelerisque et nisi. Donec ligula quam, semper nec bibendum in, semper eget dolor. In hac habitasse platea dictumst. Maecenas adipiscing semper rutrum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;"
-                                                  rating:5
-                                                   photo:[UIImage imageNamed:@"comtesDeChampagne.jpg"]];
+    //Lo asignamos como controlaor raíz
+    self.window.rootViewController = navVC;
     
-    //1. Creamos los controladores
-    
-    
-    //Tenemos tres controladores cada uno asociado a uno modelo.
-    WineViewController *tintoVC = [[WineViewController alloc]initWithModel:tinto]; //Controlador del 1º vino
-    WineViewController *blancoVC = [[WineViewController alloc]initWithModel:albarinno]; //Para el 2º vino
-    WineViewController *otroVC = [[WineViewController alloc]initWithModel:champagne]; //Para el 3º vino
-    
-    
-    //Cada uno de los controladores que acabamos de crear está metido dentro de un Navigation Controlller
-    UINavigationController *tintoNav = [[UINavigationController alloc]initWithRootViewController:tintoVC];
-    UINavigationController *blancoNav = [[UINavigationController alloc]initWithRootViewController:blancoVC];
-    UINavigationController *otroNav = [[UINavigationController alloc]initWithRootViewController:otroVC];
-    
-    //2. Creamos un combinador
-    
-    //Finalmente cada uno de esos tres Navigation Controller los metemos dentro de un Tab Controller, en el array de más abajo
-    UITabBarController *tabVC = [[UITabBarController alloc]init];
-    tabVC.viewControllers = @[tintoNav, blancoNav, otroNav];
-    
-    
-    //TabBarController (barra de opciones en la parte inferior)
-    //UITabBarController *tabVC = [[UITabBarController alloc]init];
-    //tabVC.viewControllers = @[wineVC, webVC];
-    
-    //NavigationController
-    //UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:wineVC];
-    
-    
-    //Lo asignamos como controlador raíz
-    self.window.rootViewController = tabVC; //TabBarController
-    //self.window.rootViewController = navVC; //NavigationController
-    
-    // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;

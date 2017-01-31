@@ -18,7 +18,7 @@
 @property(strong, nonatomic) NSURL *wineCompanyWeb; //Tipo NSURL
 @property(strong, nonatomic) NSString *notes;
 @property(strong, nonatomic) NSString *origin;
-@property(nonatomic) int rating; //Entreo de 0 a 5, no lleva el Strong puesto que no es un objeto sino un entero
+@property(nonatomic) int rating; //Entero de 0 a 5, no lleva el Strong puesto que no es un objeto sino un entero
 @property(strong, nonatomic) NSArray *grapes;//Tipo NSArray
 @property(strong, nonatomic) NSString *name;
 @property(strong, nonatomic) NSString *wineCompanyName;
@@ -28,37 +28,37 @@
 //Constructor completo
 +(id) wineWithName: (NSString *) aName
    wineCompanyName: (NSString *) aWineCompanyName
-              type:(NSString *) aType
+              type: (NSString *) aType
             origin: (NSString *) anOrigin
             grapes: (NSArray *) arrayOfGrapes
     wineCompanyWeb: (NSURL *) aURL
-             notes:(NSString *) aNotes
-            rating:(int) aRating
-             photo:(UIImage *) aPhoto;
+             notes: (NSString *) aNotes
+            rating: (int) aRating
+             photo: (UIImage *) aPhoto;
 
 //Constructor parcial
-+(id) wineWithName:(NSString *) aName
++(id) wineWithName: (NSString *) aName
    wineCompanyName: (NSString *) aWineCompanyName
               type: (NSString *) aType
-              origin:(NSString *) anOrigin;
+            origin: (NSString *) anOrigin;
 
 //Inicializadores//////////////////////////////////////////////////////////////////////////////////////////////
 
 //Inicializador completo
 -(id) initWithName: (NSString *) aName
    wineCompanyName: (NSString *) aWineCompanyName
-              type:(NSString *) aType
+              type: (NSString *) aType
             origin: (NSString *) anOrigin
             grapes: (NSArray *) arrayOfGrapes
     wineCompanyWeb: (NSURL *) aURL
-             notes:(NSString *) aNotes
-            rating:(int) aRating
-             photo:(UIImage *) aPhoto;
+             notes: (NSString *) aNotes
+            rating: (int) aRating
+             photo: (UIImage *) aPhoto;
 
 //Inicializador parcial
--(id) initWithName:(NSString *) aName
+-(id) initWithName: (NSString *) aName
    wineCompanyName: (NSString *) aWineCompanyName
               type: (NSString *) aType
-              origin:(NSString *) anOrigin;
+            origin: (NSString *) anOrigin;
 
 @end
