@@ -33,6 +33,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    
+    if (self.splitViewController.displayMode == UISplitViewControllerDisplayModePrimaryHidden) {
+        self.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem; //Hace aparecer el botón que hace visible el SplitView en vertical
+    }
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -51,6 +56,12 @@
                                                                            green: 0
                                                                             blue: 0.13
                                                                            alpha: 1];//Cambiamos el color de la barra de navegación
+    
+    self.navigationItem.leftBarButtonItem.tintColor = [UIColor colorWithRed: 0
+                                                                      green: 0
+                                                                       blue: 0
+                                                                      alpha: 1]; //Cambio el color del texto del botón del SplitView
+    
 }
 
 #pragma mark - Table view data source
@@ -140,14 +151,17 @@
         wine = [self.model otherWineAtIndex:indexPath.row];
     }
     
-    //Creamos un controlador para dicho vino
-    WineViewController *wineVC = [[WineViewController alloc] initWithModel:wine];
-    
-    //Hacemos un push al navigation controller en el que estamos
-    [self.navigationController pushViewController: wineVC //Llamamos a la vista wineVC y le pasamos un vino para que se muestre en una NavBar
-                                         animated: YES]; //Con animación, of course!
-}
+    [self.delegate wineryTableViewController:self didSelectWine:wine]; //Mandamos un mensaje al delegadp pasándole el controlador (él mismo) y el vino que ha tocado el usuario
 
+    
+    //Notificación
+    /* Dadas las limitaciones de los delegados en Cocoa (una clase puede ser delegada de varias pero solo puede tener un delegado), será necesario crear una notificación que será enviada al WebViewController (mediante el centro de notificaciones) para avisarle de que hemos cambiado de vino, y por tanto, la vista que se está mostrando (la web) debe cambiar a la ficha del nuevo vino seleccionado
+     */
+    NSNotification *n = [NSNotification notificationWithName:NEW_WINE_NOTIFICATION object:self userInfo:@{WINE_KEY: wine}]; //Creamos una notificación con su nombre, el objeto destino y un diccionario de datos de usuario (en este caso pasamos el vino seleccionado)
+    
+    [[NSNotificationCenter defaultCenter] postNotification:n]; //Mandamos nuestra notificación al centro de notificaciones
+    
+}
 
 /*
 // Override to support conditional editing of the table view.

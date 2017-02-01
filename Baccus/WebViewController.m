@@ -7,6 +7,7 @@
 //
 
 #import "WebViewController.h"
+#import "WineryTableViewController.h"
 
 @implementation WebViewController
 
@@ -24,6 +25,33 @@
 -(void) viewWillAppear:(BOOL)animated { //Mostramos la vista
     [super viewWillAppear:animated]; //Llamamos al método del padre
     [self displayURL: self.model.wineCompanyWeb]; //Llamámos al método displayURL definido más abajo
+    
+    //Nos damos de alta en el centro de notificaciones para recibir mensajes de otros objetos
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center addObserver: self
+               selector: @selector(wineDidChange:)
+                   name: NEW_WINE_NOTIFICATION
+                 object: nil]; //Al suscribirnos en un centro pasamos como parametro: el objeto que se va a suscribir, el número del selector del mensaje (esto es asi por implementación de Objetive-C) debe llevar un método como parametro que se encargue de realizar los cambios, nombre de la notificación y objeto.
+    
+}
+
+-(void) wineDidChange: (NSNotification*) notification {
+    
+    NSDictionary *dict = [notification userInfo]; //Creamos un diccionario con la notificación recibida
+    WineModel *newWine = [dict objectForKey:WINE_KEY]; //Pasamos la clave definida anteriormente en WineryTableControllerView
+    
+    //Actualizamos el modelo
+    self.model = newWine;
+    [self displayURL:self.model.wineCompanyWeb];
+    
+    
+}
+
+-(void) viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    //Nos damos de baja del centro de notificsciones, esto debe hacerse siempre que se da de alta
+    [[NSNotificationCenter defaultCenter] removeObserver:self]; //Nos damos de baja de todas las notificaciones
 }
 
 - (void)didReceiveMemoryWarning {

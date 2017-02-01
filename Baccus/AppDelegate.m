@@ -24,17 +24,26 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     //1. Creamos el modelo
-    WineryModel *winery = [[WineryModel alloc] init];
+    WineryModel *winery = [[WineryModel alloc] init]; //Modelo de la vinoteca
     
-    //2. Creamos el controlador
-    WineryTableViewController *wineryVC = [[WineryTableViewController alloc] initWithModel:winery style:UITableViewStylePlain];
-
+    //2. Creamos los controladores
+    WineryTableViewController *wineryVC = [[WineryTableViewController alloc] initWithModel:winery style:UITableViewStylePlain]; //Controlador para la vinoteca
+    WineViewController *wineVC = [[WineViewController alloc]initWithModel:[winery redWineAtIndex:0]]; //Controlador para los vinos
     
-    //3. Creamos un combinador (navigation bar)
-    UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:wineryVC];
+    //3. Creamos los navigation
+    UINavigationController *wineryNav = [[UINavigationController alloc] initWithRootViewController:wineryVC]; //Navigation de la vinoteca
+    UINavigationController *wineNav = [[UINavigationController alloc] initWithRootViewController:wineVC]; //Navigation del vino
+    
+    //4. Creamos el combinador (splitView)
+    UISplitViewController *splitVC = [[UISplitViewController alloc] init];
+    splitVC.viewControllers = @[wineryNav, wineNav]; //Le paso las dos vistas a la SplitView, primero la que siempre está activa y luego la que aparece solamente en modo apaisado
+    
+    //Asignamos los delegados
+    splitVC.delegate = wineVC; //El delegado del SplitView es WineViewController
+    wineryVC.delegate = wineVC; //Al igual que también lo es de WineryTableViewController
     
     //Lo asignamos como controlaor raíz
-    self.window.rootViewController = navVC;
+    self.window.rootViewController = splitVC; //Asigno esta vista como la vista principal (SplitView)
     
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];

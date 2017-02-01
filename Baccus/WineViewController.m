@@ -27,8 +27,31 @@
     [super viewWillAppear:animated];
     [self syncModelWithView]; //Llamámos al método definido más abajo para la sincronización con el modelo
     self.edgesForExtendedLayout =UIRectEdgeNone; //Evitamos que los elementos se muestren debajo de la NavBar
-    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:1];//Cambiamos el color de la barra de navegación (en este caso cambiará sólo el título).
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed: 0.5
+                                                                         green: 0
+                                                                          blue: 0.13
+                                                                         alpha: 1];//Cambiamos el color de la barra de navegación//Cambiamos el color de la barra de navegación (en este caso cambiará sólo el título).
     
+    self.navigationItem.leftBarButtonItem.tintColor = [UIColor colorWithRed: 0
+                                                                      green: 0
+                                                                       blue: 0
+                                                                      alpha: 1]; //Cambio el color del texto del botón del SplitView
+    
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    
+    if (self.splitViewController.displayMode == UISplitViewControllerDisplayModePrimaryHidden) {
+        self.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem; //Hace aparecer el botón que hace visible el SplitView en vertical
+    }
+    
+    // Uncomment the following line to preserve selection between presentations.
+    // self.clearsSelectionOnViewWillAppear = NO;
+    
+    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -94,6 +117,28 @@
     return repr; //Devolvemos el array en forma de cadena de texto
 }
 
+#pragma mark - UISplitViewControllerDelegate
+
+-(void) splitViewController: (UISplitViewController *) svc
+    willChangeToDisplayMode: (UISplitViewControllerDisplayMode) displayMode {
+    
+    if (displayMode == UISplitViewControllerDisplayModePrimaryHidden) { //Si el splitMode está en modo hidden (esto es, no se muestran las dos columnas)
+        self.navigationItem.leftBarButtonItem = svc.displayModeButtonItem; //Mostramos el botón de navegación
+    }
+}
+
+
+#pragma mark - WineryTableViewControllerDelegate
+
+
+-(void) wineryTableViewController: (WineryTableViewController *)wineryVC //Implementamos el código del delegado del WineryTableViewController
+                    didSelectWine: (WineModel *) aWine {
+    
+    self.model = aWine; //Cambiamos el modelo al del vino seleccionado
+    self.title = aWine.name; //Actualizamos también el título en la navBar
+    [self syncModelWithView]; //Sincronizamos modelo y vista
+}
+    
 /*
  #pragma mark - Navigation
  
