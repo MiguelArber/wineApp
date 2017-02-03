@@ -139,19 +139,9 @@
     //Suponemos que estamos en un navigation controller
     
     //Averiguamos de qué vino se trata
-    WineModel *wine = nil;
+    WineModel *wine = [self wineForIndexAtPath:indexPath];
     
-    //Obtenemos el vino correspondiente
-    
-    if(indexPath.section == RED_WINE_SECTION) {
-        wine = [self.model redWineAtIndex:indexPath.row];
-    } else if (indexPath.section ==WHITE_WINE_SECTION) {
-        wine = [self.model whiteWineAtIndex:indexPath.row];
-    } else {
-        wine = [self.model otherWineAtIndex:indexPath.row];
-    }
-    
-    [self.delegate wineryTableViewController:self didSelectWine:wine]; //Mandamos un mensaje al delegadp pasándole el controlador (él mismo) y el vino que ha tocado el usuario
+    [self.delegate wineryTableViewController:self didSelectWine:wine]; //Mandamos un mensaje al delegado pasándole el controlador (él mismo) y el vino que ha tocado el usuario
 
     
     //Notificación
@@ -161,50 +151,74 @@
     
     [[NSNotificationCenter defaultCenter] postNotification:n]; //Mandamos nuestra notificación al centro de notificaciones
     
+    [self saveLastSelectedWineAtSection: indexPath.section
+                                    row: indexPath.row]; //Llamo al método saveLastSelectedWineAtSection: Cada vez que cambiamos de vino guardamos la posición (en la tabla) del último vino seleccionado
+    
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
+#pragma mark - Utils
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+-(WineModel *) wineForIndexAtPath: (NSIndexPath *) indexPath {
+    
+    WineModel *wine = nil;
+    
+    //Averiguamos el tipo de vino del que se trata
+    if(indexPath.section == RED_WINE_SECTION) {
+        wine = [self.model redWineAtIndex:indexPath.row];
+    } else if(indexPath.section == WHITE_WINE_SECTION) {
+        wine = [self.model whiteWineAtIndex:indexPath.row];
+    } else {
+        wine = [self.model otherWineAtIndex:indexPath.row];
+    }
+    
+    return wine; //Lo retornamos
+    
 }
-*/
 
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+
+#pragma mark - NSUserDefaults
+-(NSDictionary *) setDefaults { //Si es la primera vez que abrimos la app...
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults]; //Creamos el fichero de preferencias de usuario
+    
+    //Por defecto mostramos el primer vino tinto de la lista
+    NSDictionary *defaultWine = @{SECTION_KEY: @(RED_WINE_SECTION), ROW_KEY: @0};
+    //La función de arriba solo acepta objetos como parámetros, es por ello que en el SECTION_KEY le pasamos una constante (int) empaquetada en una @ y a ROW_KEY le pasamos un @0. En ambos casos en vez de pasarle un int le estamos pasando un objeto de tipo NSNumber.
+    
+    [defaults setObject:defaultWine forKey:LAST_WINE_KEY]; //Lo asignamos
+    [defaults synchronize]; //Y sincronizamos (guardamos)
+    
+    return defaultWine;
+    
 }
-*/
 
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
+-(void) saveLastSelectedWineAtSection: (NSUInteger) section row: (NSUInteger)row { //Método que guarda el último vino seleccionado
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults]; //Abrimos el fichero de preferencias del usuario
+    
+    [defaults setObject: @{SECTION_KEY: @(section),
+                           ROW_KEY: @(row)}
+                 forKey: LAST_WINE_KEY]; //Guardamos el vino seleccionado bajo la clave de LAST_WINE_KEY
+    
+    [defaults synchronize]; //Sincronizamos
 }
-*/
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(WineModel *) lastWineSelected { //Devuelve el último vino que se visualizó
+    
+    NSIndexPath *indexPath = nil;
+    NSDictionary *coords = nil;
+    
+    coords = [[NSUserDefaults standardUserDefaults] objectForKey:LAST_WINE_KEY]; //Obtengo el último vino seleccionado
+    
+    if(coords == nil) {
+        coords = [self setDefaults]; //Si no hay nada guardado, mostramos el vino por defecto (primer vino tinto de la tabla)
+    }
+    
+    //Guardo la posición del vino
+    indexPath = [NSIndexPath indexPathForRow:[[coords objectForKey:ROW_KEY] integerValue]
+                                   inSection:[[coords objectForKey:SECTION_KEY] integerValue]];
+    
+    return[self wineForIndexAtPath:indexPath]; //La devuelvo
 }
-*/
 
 @end

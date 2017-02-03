@@ -28,7 +28,7 @@
     
     //2. Creamos los controladores
     WineryTableViewController *wineryVC = [[WineryTableViewController alloc] initWithModel:winery style:UITableViewStylePlain]; //Controlador para la vinoteca
-    WineViewController *wineVC = [[WineViewController alloc]initWithModel:[winery redWineAtIndex:0]]; //Controlador para los vinos
+    WineViewController *wineVC = [[WineViewController alloc] initWithModel:[wineryVC lastWineSelected]]; //Controlador para los vinos: Se visualizará el último vino seleccionado por el usuario
     
     //3. Creamos los navigation
     UINavigationController *wineryNav = [[UINavigationController alloc] initWithRootViewController:wineryVC]; //Navigation de la vinoteca

@@ -17,6 +17,10 @@
 #define NEW_WINE_NOTIFICATION @"newWine"
 #define WINE_KEY @"wine"
 
+#define SECTION_KEY @"section"
+#define ROW_KEY @"row"
+#define LAST_WINE_KEY @"lastWine"
+
 @class WineryTableViewController; //Declaración anticipada: Llegado a este punto el compliador aún no tiene constancia de la existencia de esta clase, por tanto nos daría errores a la hora de declarar el protocolo y el delegado. Para solucionarlo añadimos @class, que lo que indica es que esta clase está definida más adelante.
 
 @protocol WineryTableViewControllerDelegate <NSObject> //Con este protocolo definimos lo que se mandará al delegado al tocar sobre una celda de la tabla. PD: Una clase puede ser delegada de muchas otras clases, pero solo puede tener un delegado.
@@ -38,5 +42,6 @@
 
     -(id) initWithModel: (WineryModel *) aModel //Inicializador del modelo
              style: (UITableViewStyle) aStyle; //Sin asterisco puesto que no es un objeti sino una constante
+    -(WineModel *) lastWineSelected; //devolverá el último vino seleccionado
 
 @end
