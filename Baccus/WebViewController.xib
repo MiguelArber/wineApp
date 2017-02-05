@@ -7,8 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WebViewController">
             <connections>
-                <outlet property="activityView" destination="ze6-qp-UCn" id="Qjd-iW-aFI"/>
-                <outlet property="browser" destination="Qe9-5w-uT3" id="Sqc-AN-OfB"/>
+                <outlet property="activityView" destination="ze6-qp-UCn" id="kbR-by-adi"/>
+                <outlet property="browser" destination="Qe9-5w-uT3" id="BW8-mN-UdG"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

@@ -85,7 +85,7 @@
     [self.notesLabel setNumberOfLines:0]; //Para que el texto de notas se muestre en tantas lineas como necesite
 }
 
--(void) clearRatings { //Método que utilizaremos para dejar en 0 la puntuiación del vino
+-(void) clearRatings { //Método que utilizaremos para dejar en 0 la puntuación del vino
     
     for(UIImageView *imgView in self.ratingViews) {
         imgView.image = nil;

@@ -114,12 +114,14 @@
 
 -(id) initWithDictionary:(NSDictionary *)aDict { //Sacamos los datos del diccionario y se los vamos pasa do al inicializador designado
     
+    //Los ids utilizados más adelante como "name", "type", "grapes", etc… Son los tags asignados a cada campo en el JSON. Hay que tener en cuenta que alguno de estos campos podría no coincidir con el nombre del atributo de la clase WineModel (p.ej.: wineCompanyWeb y wine_web). Así mismo, las uvas vienen en un array llamado "grapes" aunque luego cada uva viene dada por el campo "grape", dentro de dicho array.
+    
     return [self initWithName:[aDict objectForKey:@"name"]
               wineCompanyName:[aDict objectForKey:@"wineCompanyName"]
                          type:[aDict objectForKey:@"type"]
                        origin:[aDict objectForKey:@"origin"]
                        grapes:[self extractGrapesFromJSONArray:[aDict objectForKey:@"grapes"]]
-               wineCompanyWeb:[aDict objectForKey:@"wineCompanyName"]
+                wineCompanyWeb:[NSURL URLWithString:[aDict objectForKey:@"wine_web"]]
                         notes:[aDict objectForKey:@"notes"]
                        rating:[[aDict objectForKey:@"rating"]intValue]
                      photoURL:[NSURL URLWithString:[aDict objectForKey:@"picture"]]
@@ -131,7 +133,8 @@
     NSMutableArray *grapes = [NSMutableArray arrayWithCapacity:[JSONArray count]];
     
     for(NSDictionary *dict in JSONArray) {
-        [grapes addObject:[dict objectForKey:@"grape"]];
+        [grapes addObject:[dict objectForKey:@"grape"]]; //Las uvas vienen en un array llamado "grapes" aunque luego cada uva viene dada por el campo "grape", dentro de dicho array.
+
     }
     
     return grapes;

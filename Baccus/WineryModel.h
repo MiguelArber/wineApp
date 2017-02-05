@@ -20,8 +20,8 @@
 @property(readonly, nonatomic) int otherWineCount;
 
 
--(WineModel *) redWineAtIndex: (int) index; //Devuelve el vino tinto en la posición index
--(WineModel *) whiteWineAtIndex: (int) index;//Devuelve el vino blanco en la posición index
--(WineModel *) otherWineAtIndex: (int) index;//Devuelve el vino otro en la posición index
+-(WineModel *) redWineAtIndex: (NSUInteger) index; //Devuelve el vino tinto en la posición index
+-(WineModel *) whiteWineAtIndex: (NSUInteger) index;//Devuelve el vino blanco en la posición index
+-(WineModel *) otherWineAtIndex: (NSUInteger) index;//Devuelve el vino otro en la posición index
 
 @end

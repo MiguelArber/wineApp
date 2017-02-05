@@ -42,7 +42,7 @@
 
 
     -(id) initWithModel: (WineryModel *) aModel //Inicializador del modelo
-             style: (UITableViewStyle) aStyle; //Sin asterisco puesto que no es un objeti sino una constante
+             style: (UITableViewStyle) aStyle; //Sin asterisco puesto que no es un objeto sino una constante
     -(WineModel *) lastWineSelected; //devolverá el último vino seleccionado
 
 @end

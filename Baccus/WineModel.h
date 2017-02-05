@@ -13,16 +13,16 @@
 
 @interface WineModel : NSObject
 
-@property(strong, nonatomic) NSString *type; //Tipo NSString
+@property(copy, nonatomic) NSString *type; //Tipo NSString
 @property(strong, nonatomic) UIImage *photo; //Tipo imagen
 @property(strong, nonatomic) NSURL *photoURL; //Tipo NSURL (para guardar la URL de la imagen)
 @property(strong, nonatomic) NSURL *wineCompanyWeb; //Tipo NSURL
-@property(strong, nonatomic) NSString *notes;
-@property(strong, nonatomic) NSString *origin;
+@property(copy, nonatomic) NSString *notes;
+@property(copy, nonatomic) NSString *origin;
 @property(nonatomic) int rating; //Entero de 0 a 5, no lleva el Strong puesto que no es un objeto sino un entero
 @property(strong, nonatomic) NSArray *grapes;//Tipo NSArray
-@property(strong, nonatomic) NSString *name;
-@property(strong, nonatomic) NSString *wineCompanyName;
+@property(copy, nonatomic) NSString *name;
+@property(copy, nonatomic) NSString *wineCompanyName;
 
 //Métodos de clase//////////////////////////////////////////////////////////////////////////////////////
 
