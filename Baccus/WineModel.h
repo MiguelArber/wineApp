@@ -15,6 +15,7 @@
 
 @property(strong, nonatomic) NSString *type; //Tipo NSString
 @property(strong, nonatomic) UIImage *photo; //Tipo imagen
+@property(strong, nonatomic) NSURL *photoURL; //Tipo NSURL (para guardar la URL de la imagen)
 @property(strong, nonatomic) NSURL *wineCompanyWeb; //Tipo NSURL
 @property(strong, nonatomic) NSString *notes;
 @property(strong, nonatomic) NSString *origin;
@@ -23,7 +24,7 @@
 @property(strong, nonatomic) NSString *name;
 @property(strong, nonatomic) NSString *wineCompanyName;
 
-//Métodos de clase/////////////////////////////////////////////////////////////////////////////////////////////
+//Métodos de clase//////////////////////////////////////////////////////////////////////////////////////
 
 //Constructor completo
 +(id) wineWithName: (NSString *) aName
@@ -34,7 +35,7 @@
     wineCompanyWeb: (NSURL *) aURL
              notes: (NSString *) aNotes
             rating: (int) aRating
-             photo: (UIImage *) aPhoto;
+          photoURL: (NSURL *) aPhotoURL;
 
 //Constructor parcial
 +(id) wineWithName: (NSString *) aName
@@ -42,7 +43,7 @@
               type: (NSString *) aType
             origin: (NSString *) anOrigin;
 
-//Inicializadores//////////////////////////////////////////////////////////////////////////////////////////////
+//Inicializadores////////////////////////////////////////////////////////////////////////////////////////
 
 //Inicializador completo
 -(id) initWithName: (NSString *) aName
@@ -53,12 +54,15 @@
     wineCompanyWeb: (NSURL *) aURL
              notes: (NSString *) aNotes
             rating: (int) aRating
-             photo: (UIImage *) aPhoto;
+          photoURL: (NSURL *) aPhotoURL;
 
 //Inicializador parcial
 -(id) initWithName: (NSString *) aName
    wineCompanyName: (NSString *) aWineCompanyName
               type: (NSString *) aType
             origin: (NSString *) anOrigin;
+
+//Inicializador a partir de un diccionario en JSON
+-(id) initWithDictionary: (NSDictionary *) aDict;
 
 @end

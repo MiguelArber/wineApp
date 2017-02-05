@@ -9,10 +9,9 @@
 #import "WineryModel.h"
 
 @interface WineryModel ()
-
-@property(strong, nonatomic) NSArray *redWines;
-@property(strong, nonatomic) NSArray *whiteWines;
-@property(strong, nonatomic) NSArray *otherWines;
+@property (strong, nonatomic) NSMutableArray *redWines; //Pasamos de NSArray a NSMutableArray
+@property (strong, nonatomic) NSMutableArray *whiteWines;
+@property (strong, nonatomic) NSMutableArray *otherWines;
 
 
 @end
@@ -42,7 +41,7 @@
 
 -(id) init { //Meto vinos a capón
     if(self == [super init]) {
-        // Creamos tres modelos de vino: tinto, blanco y un champán
+        /* //Creamos tres modelos de vino a capón
         WineModel *tinto = [WineModel wineWithName:@"Bembibre"
                                    wineCompanyName:@"Dominio de Tares"
                                               type:@"tinto"
@@ -71,31 +70,81 @@
                                         wineCompanyWeb:[NSURL URLWithString:@"http://www.taittinger.fr"]
                                                  notes:@"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac nunc purus. Curabitur eu velit mauris. Curabitur magna nisi, ullamcorper ac bibendum ac, laoreet et justo. Praesent vitae tortor quis diam luctus condimentum. Suspendisse potenti. In magna elit, interdum sit amet facilisis dictum, bibendum nec libero. Maecenas pellentesque posuere vehicula. Vivamus eget nisl urna, quis egestas sem. Vivamus at venenatis quam. Sed eu nulla a orci fringilla pulvinar ut eu diam. Morbi nibh nibh, bibendum at laoreet egestas, scelerisque et nisi. Donec ligula quam, semper nec bibendum in, semper eget dolor. In hac habitasse platea dictumst. Maecenas adipiscing semper rutrum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;"
                                                 rating:5
-                                                 photo:[UIImage imageNamed:@"comtesDeChampagne.jpg"]];
-        self.redWines = @[tinto];
-        self.whiteWines = @[albarinno];
-        self.otherWines = @[champagne];
+                                                 photo:[UIImage imageNamed:@"comtesDeChampagne.jpg"]];*/
 
+        
+        
+        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://static.keepcoding.io/baccus/wines.json"]]; //Le pasamos la URL del JSON
+        
+        NSURLResponse *response = [[NSURLResponse alloc]init];
+        NSError *error;
+        NSData *data = [NSURLConnection sendSynchronousRequest:request
+                                             returningResponse:&response
+                                                         error:&error];
+        if(data != nil) { //Sin errores
+            
+            NSArray * JSONObjects = [NSJSONSerialization JSONObjectWithData:data
+                                                                    options:kNilOptions
+                                                                      error:&error]; //Transformamos esta representación JSON a un NSArray
+            
+            if (JSONObjects != nil) {
+                //No ha habido error
+                for(NSDictionary *dict in JSONObjects){
+                    WineModel *wine = [[WineModel alloc] initWithDictionary:dict];
+                    
+                    //Añadimos al tipo adecuado
+                    if ([wine.type isEqualToString:RED_WINE_KEY]) {
+                        if (!self.redWines) {
+                            self.redWines = [NSMutableArray arrayWithObject:wine];
+                        }
+                        else {
+                            [self.redWines addObject:wine];
+                        }
+                    }
+                    else if ([wine.type isEqualToString:WHITE_WINE_KEY]) {
+                        if (!self.whiteWines) {
+                            self.whiteWines = [NSMutableArray arrayWithObject:wine];
+                        }
+                        else {
+                            [self.whiteWines addObject:wine];
+                        }                    }
+                    else {
+                        if (!self.otherWines) {
+                            self.otherWines = [NSMutableArray arrayWithObject:wine]; //fix/11a
+                        }
+                        else {
+                            [self.otherWines addObject:wine]; //fix/11a
+                        }
+                    }
+                }
+            } else {
+                // Se ha producido un error al parsear el JSON
+                NSLog(@"Error al parsear JSON: %@", error.localizedDescription);
+            }
+        } else {
+            // Error al descargar los datos del servidor
+            NSLog(@"Error al descargar datos del servidor: %@", error.localizedDescription);
+        }
     }
-    
     return self;
 }
 
--(WineModel *) redWineAtIndex: (int) index {
+
+-(WineModel *) redWineAtIndex: (NSUInteger) index {
     
     return [self.redWines objectAtIndex:index]; //Devuelve el objeto en la posición index
     
 }
 
 
--(WineModel *) whiteWineAtIndex: (int) index{
+-(WineModel *) whiteWineAtIndex: (NSUInteger) index{
     
     return [self.whiteWines objectAtIndex:index];
     
 }
 
 
--(WineModel *) otherWineAtIndex: (int) index{
+-(WineModel *) otherWineAtIndex: (NSUInteger) index{
     
     return [self.otherWines objectAtIndex:index];
     

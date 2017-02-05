@@ -29,7 +29,8 @@
 
 @end
 
-@interface WineryTableViewController : UITableViewController
+@interface WineryTableViewController : UITableViewController <WineryTableViewControllerDelegate>
+//Desciende de UITableViewController e implementa el protocolo WineryTableViewControllerDelegate
 
     @property(nonatomic, strong) WineryModel *model; //Modelo de la vinoteca
 

@@ -10,20 +10,33 @@
 
 @implementation WineModel
 
+@synthesize photo = _photo; //Al definir una propiead (definida en el .m como property) hay casos en los que es necesario realizar un @sinthesize (esto normalmente se realiza de forma automática por el compilador). Esto es necesario cuando creamos una propiedad que sería de sólo lectura y tenemos un getter personalizado.
+
+#pragma mark - Propiedades
+-(UIImage *) photo {
+    // Esto va a bloquear y se debería de hacer en segundo plano
+    
+    if (_photo == nil) { // Carga perezosa: solo cargo la imagen si hace falta.
+        _photo = [UIImage imageWithData:[NSData dataWithContentsOfURL:self.photoURL]];
+    }
+    return _photo;
+    
+}
+
 #pragma mark - Init
 
-//Métodos de clase/////////////////////////////////////////////////////////////////////////////////////////////
+//Métodos de clase///////////////////////////////////////////////////////////////////////////////////////
 
 //Constructor completo
 +(id) wineWithName: (NSString *) aName
    wineCompanyName: (NSString *) aWineCompanyName
-              type:(NSString *) aType
+              type: (NSString *) aType
             origin: (NSString *) anOrigin
             grapes: (NSArray *) arrayOfGrapes
     wineCompanyWeb: (NSURL *) aURL
-             notes:(NSString *) aNotes
-            rating:(int) aRating
-             photo:(UIImage *) aPhoto {
+             notes: (NSString *) aNotes
+            rating: (int) aRating
+          photoURL: (NSURL *) aPhotoURL {
     
     return [[self alloc] initWithName:aName
                       wineCompanyName:aWineCompanyName
@@ -33,12 +46,12 @@
                        wineCompanyWeb:aURL
                                 notes:aNotes
                                rating:aRating
-                                photo:aPhoto];
+                             photoURL:aPhotoURL];
     
 }
 
 //Constructor parcial
-+(id) wineWithName:(NSString *) aName
++(id) wineWithName: (NSString *) aName
    wineCompanyName: (NSString *) aWineCompanyName
               type: (NSString *) aType
             origin: (NSString *) anOrigin
@@ -51,7 +64,7 @@
     
 }
 
-//Inicializadores//////////////////////////////////////////////////////////////////////////////////////////////
+//Inicializadores////////////////////////////////////////////////////////////////////////////////////////
 
 //Inicializador completo
 -(id) initWithName: (NSString *) aName
@@ -62,7 +75,7 @@
     wineCompanyWeb: (NSURL *) aURL
              notes: (NSString *) aNotes
             rating: (int) aRating
-             photo: (UIImage *) aPhoto {
+          photoURL: (NSURL *) aPhotoURL {
     
     if(self==[super init]) {
         //Asignamos los parametros a las variables de instancia
@@ -74,17 +87,17 @@
         _wineCompanyWeb = aURL;
         _notes = aNotes;
         _rating = aRating;
-        _photo = aPhoto;
+        _photoURL = aPhotoURL;
     }
     
     return self;
 }
 
 //Inicializador parcial
--(id) initWithName:(NSString *) aName
+-(id) initWithName: (NSString *) aName
    wineCompanyName: (NSString *) aWineCompanyName
               type: (NSString *) aType
-              origin:(NSString *) anOrigin {
+            origin: (NSString *) anOrigin {
     
     return [self initWithName:aName
               wineCompanyName:aWineCompanyName
@@ -94,8 +107,34 @@
                wineCompanyWeb:nil
                         notes:nil
                        rating:NO_RATING
-                        photo:nil];
+                     photoURL:nil];
 }
 
+#pragma mark - JSON
+
+-(id) initWithDictionary:(NSDictionary *)aDict { //Sacamos los datos del diccionario y se los vamos pasa do al inicializador designado
+    
+    return [self initWithName:[aDict objectForKey:@"name"]
+              wineCompanyName:[aDict objectForKey:@"wineCompanyName"]
+                         type:[aDict objectForKey:@"type"]
+                       origin:[aDict objectForKey:@"origin"]
+                       grapes:[self extractGrapesFromJSONArray:[aDict objectForKey:@"grapes"]]
+               wineCompanyWeb:[aDict objectForKey:@"wineCompanyName"]
+                        notes:[aDict objectForKey:@"notes"]
+                       rating:[[aDict objectForKey:@"rating"]intValue]
+                     photoURL:[NSURL URLWithString:[aDict objectForKey:@"picture"]]
+            ];
+}
+
+-(NSArray *) extractGrapesFromJSONArray: (NSArray *)JSONArray {
+    
+    NSMutableArray *grapes = [NSMutableArray arrayWithCapacity:[JSONArray count]];
+    
+    for(NSDictionary *dict in JSONArray) {
+        [grapes addObject:[dict objectForKey:@"grape"]];
+    }
+    
+    return grapes;
+}
 
 @end

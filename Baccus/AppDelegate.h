@@ -15,3 +15,4 @@
 
 @end
 
+#define IS_IPHONE UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone //Detectamos si estamos en un dispositivo iPhone o no.

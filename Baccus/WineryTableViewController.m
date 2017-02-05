@@ -221,4 +221,16 @@
     return[self wineForIndexAtPath:indexPath]; //La devuelvo
 }
 
+#pragma mark - WineryTableViewControllerDelegate
+
+-(void) wineryTableViewController: (WineryTableViewController *)wineryVC //Implementamos el código del delegado del WineryTableViewController
+                    didSelectWine: (WineModel *) aWine {
+    
+    //En la vista de iPhone WineyTableViewController es su propia delegada, por tanto es necesario avisarse a sí misma de que se ha seleccionado un nuevo vino, para así cambiar de la vista de la tabla de vinos a la del vino seleccionado
+    
+    WineViewController *wineVC = [[WineViewController alloc] initWithModel:aWine];
+    [self.navigationController pushViewController: wineVC
+                                         animated: YES];
+}
+
 @end

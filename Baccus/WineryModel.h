@@ -9,6 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "WineModel.h"
 
+#define RED_WINE_KEY @"Tinto"
+#define WHITE_WINE_KEY @"Blanco"
+#define OTHER_WINE_KEY @"Otro"
+
 @interface WineryModel : NSObject
 
 @property(readonly, nonatomic) int redWineCount; //La variable readonly crea una variable solo de lectura, el compilador no creará un setter para esta variable
