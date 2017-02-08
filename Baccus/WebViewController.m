@@ -30,10 +30,10 @@
     
     [super viewWillAppear:animated]; //Llamamos al método del padre
     
-    self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0
+    /*self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0
                                                                         green:0
                                                                          blue:0
-                                                                        alpha:1];
+                                                                        alpha:1];*/
     
     //Nos damos de alta en el centro de notificaciones para recibir mensajes de otros objetos
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];

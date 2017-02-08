@@ -27,7 +27,7 @@
     [super viewWillAppear:animated];
     [self syncModelWithView]; //Llamámos al método definido más abajo para la sincronización con el modelo
     self.edgesForExtendedLayout =UIRectEdgeNone; //Evitamos que los elementos se muestren debajo de la NavBar
-    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed: 0.5
+    /*self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed: 0.5
                                                                          green: 0
                                                                           blue: 0.13
                                                                          alpha: 1];//Cambiamos el color de la barra de navegación//Cambiamos el color de la barra de navegación (en este caso cambiará sólo el título).
@@ -36,7 +36,7 @@
                                                                       green: 0
                                                                        blue: 0
                                                                       alpha: 1]; //Cambio el color del texto del botón del SplitView
-    
+   */ 
 }
 
 - (void)viewDidLoad {

@@ -52,7 +52,7 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed: 0.5
+    /*self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed: 0.5
                                                                            green: 0
                                                                             blue: 0.13
                                                                            alpha: 1];//Cambiamos el color de la barra de navegación
@@ -61,7 +61,7 @@
                                                                       green: 0
                                                                        blue: 0
                                                                       alpha: 1]; //Cambio el color del texto del botón del SplitView
-    
+    */
 }
 
 #pragma mark - Table view data source
