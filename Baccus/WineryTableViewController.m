@@ -1,6 +1,6 @@
 //
 //  WineryTableViewController.m
-//  Baccus
+//  WineApp
 //
 //  Created by Miguel Arber Mago on 31/1/17.
 //  Copyright © 2017 Miguel Arber Mago. All rights reserved.
@@ -22,7 +22,7 @@
     if(self = [super initWithStyle:aStyle]) { //si todo va bien...
         
         _model = aModel; //Asignamos el modelo al pasado por parámetro
-        self.title = @"Baccus";
+        self.title = @"WineApp";
 
     }
     

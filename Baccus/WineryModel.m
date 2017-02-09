@@ -1,6 +1,6 @@
 //
 //  WineryModel.m
-//  Baccus
+//  WineApp
 //
 //  Created by Miguel Arber Mago on 31/1/17.
 //  Copyright © 2017 Miguel Arber Mago. All rights reserved.
@@ -57,30 +57,32 @@
             if (JSONObjects != nil) {
                 //No ha habido error
                 for(NSDictionary *dict in JSONObjects){
-                    WineModel *wine = [[WineModel alloc] initWithDictionary:dict];
                     
-                    //Añadimos al tipo adecuado
-                    if ([wine.type isEqualToString:RED_WINE_KEY]) {
-                        if (!self.redWines) {
-                            self.redWines = [NSMutableArray arrayWithObject:wine];
+                    WineModel *wine = [[WineModel alloc] initWithDictionary:dict];
+                    if(wine.name != nil && wine.wineCompanyName != nil && wine.type != nil && wine.origin != nil ) {
+                        //Añadimos al tipo adecuado
+                        if ([wine.type isEqualToString:RED_WINE_KEY]) {
+                            if (!self.redWines) {
+                                self.redWines = [NSMutableArray arrayWithObject:wine];
+                            }
+                            else {
+                                [self.redWines addObject:wine];
+                            }
                         }
+                        else if ([wine.type isEqualToString:WHITE_WINE_KEY]) {
+                            if (!self.whiteWines) {
+                                self.whiteWines = [NSMutableArray arrayWithObject:wine];
+                            }
+                            else {
+                                [self.whiteWines addObject:wine];
+                            }                    }
                         else {
-                            [self.redWines addObject:wine];
-                        }
-                    }
-                    else if ([wine.type isEqualToString:WHITE_WINE_KEY]) {
-                        if (!self.whiteWines) {
-                            self.whiteWines = [NSMutableArray arrayWithObject:wine];
-                        }
-                        else {
-                            [self.whiteWines addObject:wine];
-                        }                    }
-                    else {
-                        if (!self.otherWines) {
-                            self.otherWines = [NSMutableArray arrayWithObject:wine]; //fix/11a
-                        }
-                        else {
-                            [self.otherWines addObject:wine]; //fix/11a
+                            if (!self.otherWines) {
+                                self.otherWines = [NSMutableArray arrayWithObject:wine]; //fix/11a
+                            }
+                            else {
+                                [self.otherWines addObject:wine]; //fix/11a
+                            }
                         }
                     }
                 }

@@ -1,6 +1,6 @@
 //
 //  ViewController.m
-//  Baccus
+//  WineApp
 //
 //  Created by Miguel Arber Mago on 19/1/17.
 //  Copyright © 2017 Miguel Arber Mago. All rights reserved.
@@ -27,17 +27,7 @@
     [super viewWillAppear:animated];
     [self syncModelWithView]; //Llamámos al método definido más abajo para la sincronización con el modelo
     self.edgesForExtendedLayout =UIRectEdgeNone; //Evitamos que los elementos se muestren debajo de la NavBar
-    /*self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed: 0.5
-                                                                         green: 0
-                                                                          blue: 0.13
-                                                                         alpha: 1];//Cambiamos el color de la barra de navegación//Cambiamos el color de la barra de navegación (en este caso cambiará sólo el título).
-    
-    self.navigationItem.leftBarButtonItem.tintColor = [UIColor colorWithRed: 0
-                                                                      green: 0
-                                                                       blue: 0
-                                                                      alpha: 1]; //Cambio el color del texto del botón del SplitView
-   */ 
-}
+    }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -76,13 +66,26 @@
     self.typeLabel.text = self.model.type;
     self.originLabel.text = self.model.origin;
     self.notesLabel.text = self.model.notes;
-    self.wineryNameLabel.text = self.model.wineCompanyName;
+    [self.wineryNameLabel setTitle:self.model.wineCompanyName forState:UIControlStateNormal];
     self.photoView.image = self.model.photo;
     self.grapesLabel.text = [self arrayToString: self.model.grapes]; //Llamamos al método ArrayToString y le pasamos nuestro array de uvas
     
     [self dispalyRating: self.model.rating]; //Llamamos al método displayRating y le pasamos nuestra puntuación
     
-    [self.notesLabel setNumberOfLines:0]; //Para que el texto de notas se muestre en tantas lineas como necesite
+    [self.nameLabel setNumberOfLines:0]; //Para que el texto del nombre se muestre en tantas lineas como necesite
+    [self.grapesLabel setNumberOfLines:0];
+    
+    /*// The text view (subclass of a UIScrollView) won't go past its content size
+    [self.grapesLabel setContentSize:CGSizeMake(self.grapesLabel.frame.size.width, self.grapesLabel.frame.size.height)];
+    
+    // Just in case, if you don't want your user bouncing the view up/down
+    [self.grapesLabel setAlwaysBounceVertical:NO];
+     */
+    
+    /*[self.nameLabel setTextColor:[UIColor colorWithRed: 0.5
+                                                 green: 0
+                                                  blue: 0.13
+                                                 alpha: 1]];*/
 }
 
 -(void) clearRatings { //Método que utilizaremos para dejar en 0 la puntuación del vino

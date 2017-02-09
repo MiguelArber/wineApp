@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "354218991E30E69600A78FA4"
-               BuildableName = "Baccus.app"
-               BlueprintName = "Baccus"
-               ReferencedContainer = "container:Baccus.xcodeproj">
+               BuildableName = "WineApp.app"
+               BlueprintName = "WineApp"
+               ReferencedContainer = "container:WineApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "354218991E30E69600A78FA4"
-            BuildableName = "Baccus.app"
-            BlueprintName = "Baccus"
-            ReferencedContainer = "container:Baccus.xcodeproj">
+            BuildableName = "WineApp.app"
+            BlueprintName = "WineApp"
+            ReferencedContainer = "container:WineApp.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "354218991E30E69600A78FA4"
-            BuildableName = "Baccus.app"
-            BlueprintName = "Baccus"
-            ReferencedContainer = "container:Baccus.xcodeproj">
+            BuildableName = "WineApp.app"
+            BlueprintName = "WineApp"
+            ReferencedContainer = "container:WineApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "354218991E30E69600A78FA4"
-            BuildableName = "Baccus.app"
-            BlueprintName = "Baccus"
-            ReferencedContainer = "container:Baccus.xcodeproj">
+            BuildableName = "WineApp.app"
+            BlueprintName = "WineApp"
+            ReferencedContainer = "container:WineApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

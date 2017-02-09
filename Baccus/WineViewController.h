@@ -1,6 +1,6 @@
 //
  //  ViewController.h
- //  Baccus
+ //  WineApp
  //
  //  Created by Miguel Arber Mago on 19/1/17.
  //  Copyright © 2017 Miguel Arber Mago. All rights reserved.
@@ -13,11 +13,11 @@
  @interface WineViewController : UIViewController <UISplitViewControllerDelegate, WineryTableViewControllerDelegate> //Este será el delegado del SplitViewController y de la clase WineryTableViewController
  
  @property (weak, nonatomic) IBOutlet UILabel *nameLabel; //Etiqueta para el nombre (weak: se utiliza para los IBOutlet y delegados)
- @property (weak, nonatomic) IBOutlet UILabel *wineryNameLabel;  //Etiqueta para la compania
+ @property (weak, nonatomic) IBOutlet UIButton *wineryNameLabel;  //Etiqueta para la compania
  @property (weak, nonatomic) IBOutlet UILabel *typeLabel; //Etiqueta para el tipo (tinto, blanco...)
  @property (weak, nonatomic) IBOutlet UILabel *originLabel; //Etiqueta para la denominación de origen
  @property (weak, nonatomic) IBOutlet UILabel *grapesLabel; //Etiqueta para el tipo de uva
- @property (weak, nonatomic) IBOutlet UILabel *notesLabel; //Etiqueta para las notas
+ @property (weak, nonatomic) IBOutlet UITextView *notesLabel; //Etiqueta para las notas
  @property (weak, nonatomic) IBOutlet UIImageView *photoView; //Imagen del vino
  
  @property (strong, nonatomic) WineModel *model; //Necesitamos un modelo de datos (strong: se usa para objetos y demás)

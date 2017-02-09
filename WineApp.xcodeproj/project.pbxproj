@@ -22,13 +22,14 @@
 		3583A6DC1E410D9800B8FFA6 /* WineryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3583A6DB1E410D9800B8FFA6 /* WineryTableViewController.m */; };
 		359084521E3FC11500090A3D /* zarate.gif in Resources */ = {isa = PBXBuildFile; fileRef = 359084511E3FC11500090A3D /* zarate.gif */; };
 		359084541E3FC11E00090A3D /* comtesDeChampagne.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 359084531E3FC11E00090A3D /* comtesDeChampagne.jpg */; };
+		3596C5B61E4CA53500B52DCC /* sinImagen.png in Resources */ = {isa = PBXBuildFile; fileRef = 3596C5B51E4CA53500B52DCC /* sinImagen.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		350510251E47D82100292DA8 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		350510261E47D82100292DA8 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		350510271E47D82100292DA8 /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
-		3542189A1E30E69600A78FA4 /* Baccus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Baccus.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3542189A1E30E69600A78FA4 /* WineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3542189E1E30E69600A78FA4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		354218A01E30E69600A78FA4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		354218A11E30E69600A78FA4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -48,6 +49,7 @@
 		3583A6DB1E410D9800B8FFA6 /* WineryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WineryTableViewController.m; sourceTree = "<group>"; };
 		359084511E3FC11500090A3D /* zarate.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = zarate.gif; sourceTree = "<group>"; };
 		359084531E3FC11E00090A3D /* comtesDeChampagne.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = comtesDeChampagne.jpg; sourceTree = "<group>"; };
+		3596C5B51E4CA53500B52DCC /* sinImagen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sinImagen.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +66,7 @@
 		354218911E30E69600A78FA4 = {
 			isa = PBXGroup;
 			children = (
-				3542189C1E30E69600A78FA4 /* Baccus */,
+				3542189C1E30E69600A78FA4 /* WineApp */,
 				3542189B1E30E69600A78FA4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -72,12 +74,12 @@
 		3542189B1E30E69600A78FA4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3542189A1E30E69600A78FA4 /* Baccus.app */,
+				3542189A1E30E69600A78FA4 /* WineApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3542189C1E30E69600A78FA4 /* Baccus */ = {
+		3542189C1E30E69600A78FA4 /* WineApp */ = {
 			isa = PBXGroup;
 			children = (
 				354218C21E31293400A78FA4 /* Resources */,
@@ -90,6 +92,7 @@
 				354218A81E30E69600A78FA4 /* Info.plist */,
 				3542189D1E30E69600A78FA4 /* Supporting Files */,
 			);
+			name = WineApp;
 			path = Baccus;
 			sourceTree = "<group>";
 		};
@@ -134,6 +137,7 @@
 				359084531E3FC11E00090A3D /* comtesDeChampagne.jpg */,
 				354218C31E312A8800A78FA4 /* bembibre.jpg */,
 				354218C01E31291D00A78FA4 /* splitView_score_glass@2x.png */,
+				3596C5B51E4CA53500B52DCC /* sinImagen.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -141,9 +145,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		354218991E30E69600A78FA4 /* Baccus */ = {
+		354218991E30E69600A78FA4 /* WineApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 354218AB1E30E69600A78FA4 /* Build configuration list for PBXNativeTarget "Baccus" */;
+			buildConfigurationList = 354218AB1E30E69600A78FA4 /* Build configuration list for PBXNativeTarget "WineApp" */;
 			buildPhases = (
 				354218961E30E69600A78FA4 /* Sources */,
 				354218971E30E69600A78FA4 /* Frameworks */,
@@ -153,9 +157,9 @@
 			);
 			dependencies = (
 			);
-			name = Baccus;
+			name = WineApp;
 			productName = Baccus;
-			productReference = 3542189A1E30E69600A78FA4 /* Baccus.app */;
+			productReference = 3542189A1E30E69600A78FA4 /* WineApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -173,7 +177,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 354218951E30E69600A78FA4 /* Build configuration list for PBXProject "Baccus" */;
+			buildConfigurationList = 354218951E30E69600A78FA4 /* Build configuration list for PBXProject "WineApp" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -186,7 +190,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				354218991E30E69600A78FA4 /* Baccus */,
+				354218991E30E69600A78FA4 /* WineApp */,
 			);
 		};
 /* End PBXProject section */
@@ -196,6 +200,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3596C5B61E4CA53500B52DCC /* sinImagen.png in Resources */,
 				354218C11E31291D00A78FA4 /* splitView_score_glass@2x.png in Resources */,
 				354218A41E30E69600A78FA4 /* Assets.xcassets in Resources */,
 				354218BF1E31224C00A78FA4 /* WineViewController.xib in Resources */,
@@ -328,8 +333,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Baccus/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ArberMago.Baccus;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = ArberMago.WineApp;
+				PRODUCT_NAME = WineApp;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -340,8 +345,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Baccus/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ArberMago.Baccus;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = ArberMago.WineApp;
+				PRODUCT_NAME = WineApp;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -349,7 +354,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		354218951E30E69600A78FA4 /* Build configuration list for PBXProject "Baccus" */ = {
+		354218951E30E69600A78FA4 /* Build configuration list for PBXProject "WineApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				354218A91E30E69600A78FA4 /* Debug */,
@@ -358,7 +363,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		354218AB1E30E69600A78FA4 /* Build configuration list for PBXNativeTarget "Baccus" */ = {
+		354218AB1E30E69600A78FA4 /* Build configuration list for PBXNativeTarget "WineApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				354218AC1E30E69600A78FA4 /* Debug */,

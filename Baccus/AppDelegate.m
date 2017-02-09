@@ -1,6 +1,6 @@
 //
 //  AppDelegate.m
-//  Baccus
+//  WineApp
 //
 //  Created by Miguel Arber Mago on 19/1/17.
 //  Copyright © 2017 Miguel Arber Mago. All rights reserved.
@@ -116,6 +116,7 @@
     
     [[UINavigationBar appearance] setBarTintColor:wineRed]; //Cambio el color de la barra de navegación a rojo vino
     [[UINavigationBar appearance] setTintColor:black]; //Cambio el color de la fuente a negro
+    
     
     //[[UITableViewHeaderFooterView appearance] setTintColor:wineRed]; //Esto cambiaría tabién el color de cada sección de la tabla de vinos
     

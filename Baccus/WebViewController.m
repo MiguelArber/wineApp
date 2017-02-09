@@ -1,6 +1,6 @@
 //
 //  WebViewController.m
-//  Baccus
+//  WineApp
 //
 //  Created by Miguel Arber Mago on 25/1/17.
 //  Copyright © 2017 Miguel Arber Mago. All rights reserved.

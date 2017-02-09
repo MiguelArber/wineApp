@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Baccus.xcodeproj">
+      location = "self:/Users/Arber/Documents/emptyProject/emptyAgain/Baccus/Baccus/WineApp.xcodeproj">
    </FileRef>
 </Workspace>
