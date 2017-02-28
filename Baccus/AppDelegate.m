@@ -114,6 +114,7 @@
                                       blue: 0
                                      alpha: 1];
     
+    
     [[UINavigationBar appearance] setBarTintColor:wineRed]; //Cambio el color de la barra de navegación a rojo vino
     [[UINavigationBar appearance] setTintColor:black]; //Cambio el color de la fuente a negro
     

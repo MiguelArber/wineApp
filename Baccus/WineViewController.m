@@ -72,7 +72,7 @@
     
     [self dispalyRating: self.model.rating]; //Llamamos al método displayRating y le pasamos nuestra puntuación
     
-    [self.nameLabel setNumberOfLines:0]; //Para que el texto del nombre se muestre en tantas lineas como necesite
+    //[self.notesLabel setNumberOfLines:0]; //Para que el texto de las notas se muestre en tantas lineas como necesite
     [self.grapesLabel setNumberOfLines:0];
     
     /*// The text view (subclass of a UIScrollView) won't go past its content size
