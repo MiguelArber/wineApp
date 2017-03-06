@@ -18,6 +18,7 @@
 		354218BF1E31224C00A78FA4 /* WineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 354218BD1E31224C00A78FA4 /* WineViewController.xib */; };
 		354218C11E31291D00A78FA4 /* splitView_score_glass@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 354218C01E31291D00A78FA4 /* splitView_score_glass@2x.png */; };
 		354218C41E312A8800A78FA4 /* bembibre.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 354218C31E312A8800A78FA4 /* bembibre.jpg */; };
+		354568E01E6DF6F000C32A96 /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 354568DF1E6DF6F000C32A96 /* Background.png */; };
 		3583A6D91E4107DC00B8FFA6 /* WineryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3583A6D81E4107DC00B8FFA6 /* WineryModel.m */; };
 		3583A6DC1E410D9800B8FFA6 /* WineryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3583A6DB1E410D9800B8FFA6 /* WineryTableViewController.m */; };
 		359084521E3FC11500090A3D /* zarate.gif in Resources */ = {isa = PBXBuildFile; fileRef = 359084511E3FC11500090A3D /* zarate.gif */; };
@@ -43,6 +44,7 @@
 		354218BD1E31224C00A78FA4 /* WineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WineViewController.xib; sourceTree = "<group>"; };
 		354218C01E31291D00A78FA4 /* splitView_score_glass@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splitView_score_glass@2x.png"; sourceTree = "<group>"; };
 		354218C31E312A8800A78FA4 /* bembibre.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bembibre.jpg; sourceTree = "<group>"; };
+		354568DF1E6DF6F000C32A96 /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background.png; sourceTree = "<group>"; };
 		3583A6D71E4107DC00B8FFA6 /* WineryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WineryModel.h; sourceTree = "<group>"; };
 		3583A6D81E4107DC00B8FFA6 /* WineryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WineryModel.m; sourceTree = "<group>"; };
 		3583A6DA1E410D9800B8FFA6 /* WineryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WineryTableViewController.h; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 		354218C21E31293400A78FA4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				354568DF1E6DF6F000C32A96 /* Background.png */,
 				359084511E3FC11500090A3D /* zarate.gif */,
 				359084531E3FC11E00090A3D /* comtesDeChampagne.jpg */,
 				354218C31E312A8800A78FA4 /* bembibre.jpg */,
@@ -207,6 +210,7 @@
 				350510291E47D82100292DA8 /* WebViewController.xib in Resources */,
 				359084541E3FC11E00090A3D /* comtesDeChampagne.jpg in Resources */,
 				359084521E3FC11500090A3D /* zarate.gif in Resources */,
+				354568E01E6DF6F000C32A96 /* Background.png in Resources */,
 				354218C41E312A8800A78FA4 /* bembibre.jpg in Resources */,
 				354218A71E30E69600A78FA4 /* LaunchScreen.storyboard in Resources */,
 			);
