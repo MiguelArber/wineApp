@@ -99,7 +99,7 @@
 -(void) dispalyRating:(int) aRating { //Método que nos permite mostrar las puntuaciones
     
     [self clearRatings]; //Primero lo ponemos todo a 0
-    UIImage *glass = [UIImage imageNamed:@"splitView_score_glass"]; //Cargamos la imagen de la copita
+    UIImage *glass = [UIImage imageNamed:@"glassScore"]; //Cargamos la imagen de la copita
     
     for(int i = 0; i < aRating; i++) { //For desde 0 hasta su puntuación (0-5)
         [[self.ratingViews objectAtIndex:i] setImage:glass]; //Mostramos las i primeras copitas

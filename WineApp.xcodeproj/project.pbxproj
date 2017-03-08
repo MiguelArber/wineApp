@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		350510281E47D82100292DA8 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 350510261E47D82100292DA8 /* WebViewController.m */; };
 		350510291E47D82100292DA8 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 350510271E47D82100292DA8 /* WebViewController.xib */; };
+		353DE1291E6F352B0085532B /* glassScore.png in Resources */ = {isa = PBXBuildFile; fileRef = 353DE1281E6F352B0085532B /* glassScore.png */; };
+		353DE12B1E701E670085532B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 353DE12A1E701E670085532B /* Images.xcassets */; };
 		3542189F1E30E69600A78FA4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3542189E1E30E69600A78FA4 /* main.m */; };
 		354218A21E30E69600A78FA4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 354218A11E30E69600A78FA4 /* AppDelegate.m */; };
 		354218A41E30E69600A78FA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 354218A31E30E69600A78FA4 /* Assets.xcassets */; };
@@ -16,7 +18,6 @@
 		354218B01E30EEF800A78FA4 /* WineModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 354218AF1E30EEF800A78FA4 /* WineModel.m */; };
 		354218BE1E31224C00A78FA4 /* WineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 354218BC1E31224C00A78FA4 /* WineViewController.m */; };
 		354218BF1E31224C00A78FA4 /* WineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 354218BD1E31224C00A78FA4 /* WineViewController.xib */; };
-		354218C11E31291D00A78FA4 /* splitView_score_glass@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 354218C01E31291D00A78FA4 /* splitView_score_glass@2x.png */; };
 		354218C41E312A8800A78FA4 /* bembibre.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 354218C31E312A8800A78FA4 /* bembibre.jpg */; };
 		354568E01E6DF6F000C32A96 /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 354568DF1E6DF6F000C32A96 /* Background.png */; };
 		3583A6D91E4107DC00B8FFA6 /* WineryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3583A6D81E4107DC00B8FFA6 /* WineryModel.m */; };
@@ -30,6 +31,8 @@
 		350510251E47D82100292DA8 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		350510261E47D82100292DA8 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		350510271E47D82100292DA8 /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
+		353DE1281E6F352B0085532B /* glassScore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = glassScore.png; sourceTree = "<group>"; };
+		353DE12A1E701E670085532B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = WineApp/Images.xcassets; sourceTree = SOURCE_ROOT; };
 		3542189A1E30E69600A78FA4 /* WineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3542189E1E30E69600A78FA4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		354218A01E30E69600A78FA4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -42,7 +45,6 @@
 		354218BB1E31224C00A78FA4 /* WineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WineViewController.h; sourceTree = "<group>"; };
 		354218BC1E31224C00A78FA4 /* WineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WineViewController.m; sourceTree = "<group>"; };
 		354218BD1E31224C00A78FA4 /* WineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WineViewController.xib; sourceTree = "<group>"; };
-		354218C01E31291D00A78FA4 /* splitView_score_glass@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splitView_score_glass@2x.png"; sourceTree = "<group>"; };
 		354218C31E312A8800A78FA4 /* bembibre.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bembibre.jpg; sourceTree = "<group>"; };
 		354568DF1E6DF6F000C32A96 /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background.png; sourceTree = "<group>"; };
 		3583A6D71E4107DC00B8FFA6 /* WineryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WineryModel.h; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				354218A31E30E69600A78FA4 /* Assets.xcassets */,
 				354218A51E30E69600A78FA4 /* LaunchScreen.storyboard */,
 				354218A81E30E69600A78FA4 /* Info.plist */,
+				353DE12A1E701E670085532B /* Images.xcassets */,
 				3542189D1E30E69600A78FA4 /* Supporting Files */,
 			);
 			name = WineApp;
@@ -135,11 +138,11 @@
 		354218C21E31293400A78FA4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				353DE1281E6F352B0085532B /* glassScore.png */,
 				354568DF1E6DF6F000C32A96 /* Background.png */,
 				359084511E3FC11500090A3D /* zarate.gif */,
 				359084531E3FC11E00090A3D /* comtesDeChampagne.jpg */,
 				354218C31E312A8800A78FA4 /* bembibre.jpg */,
-				354218C01E31291D00A78FA4 /* splitView_score_glass@2x.png */,
 				3596C5B51E4CA53500B52DCC /* sinImagen.png */,
 			);
 			name = Resources;
@@ -204,13 +207,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				3596C5B61E4CA53500B52DCC /* sinImagen.png in Resources */,
-				354218C11E31291D00A78FA4 /* splitView_score_glass@2x.png in Resources */,
 				354218A41E30E69600A78FA4 /* Assets.xcassets in Resources */,
 				354218BF1E31224C00A78FA4 /* WineViewController.xib in Resources */,
 				350510291E47D82100292DA8 /* WebViewController.xib in Resources */,
+				353DE12B1E701E670085532B /* Images.xcassets in Resources */,
 				359084541E3FC11E00090A3D /* comtesDeChampagne.jpg in Resources */,
 				359084521E3FC11500090A3D /* zarate.gif in Resources */,
 				354568E01E6DF6F000C32A96 /* Background.png in Resources */,
+				353DE1291E6F352B0085532B /* glassScore.png in Resources */,
 				354218C41E312A8800A78FA4 /* bembibre.jpg in Resources */,
 				354218A71E30E69600A78FA4 /* LaunchScreen.storyboard in Resources */,
 			);
