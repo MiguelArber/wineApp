@@ -11,6 +11,8 @@
 		350510291E47D82100292DA8 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 350510271E47D82100292DA8 /* WebViewController.xib */; };
 		353DE1291E6F352B0085532B /* glassScore.png in Resources */ = {isa = PBXBuildFile; fileRef = 353DE1281E6F352B0085532B /* glassScore.png */; };
 		353DE12B1E701E670085532B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 353DE12A1E701E670085532B /* Images.xcassets */; };
+		353DE1341E702FAE0085532B /* WineViewControlleriPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 353DE1321E702FAE0085532B /* WineViewControlleriPhone.xib */; };
+		353DE1361E706FEB0085532B /* BackgroundiPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 353DE1351E706FEB0085532B /* BackgroundiPhone.png */; };
 		3542189F1E30E69600A78FA4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3542189E1E30E69600A78FA4 /* main.m */; };
 		354218A21E30E69600A78FA4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 354218A11E30E69600A78FA4 /* AppDelegate.m */; };
 		354218A41E30E69600A78FA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 354218A31E30E69600A78FA4 /* Assets.xcassets */; };
@@ -33,6 +35,8 @@
 		350510271E47D82100292DA8 /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
 		353DE1281E6F352B0085532B /* glassScore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = glassScore.png; sourceTree = "<group>"; };
 		353DE12A1E701E670085532B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = WineApp/Images.xcassets; sourceTree = SOURCE_ROOT; };
+		353DE1321E702FAE0085532B /* WineViewControlleriPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WineViewControlleriPhone.xib; sourceTree = "<group>"; };
+		353DE1351E706FEB0085532B /* BackgroundiPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BackgroundiPhone.png; sourceTree = "<group>"; };
 		3542189A1E30E69600A78FA4 /* WineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3542189E1E30E69600A78FA4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		354218A01E30E69600A78FA4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -126,6 +130,7 @@
 				354218BB1E31224C00A78FA4 /* WineViewController.h */,
 				354218BC1E31224C00A78FA4 /* WineViewController.m */,
 				354218BD1E31224C00A78FA4 /* WineViewController.xib */,
+				353DE1321E702FAE0085532B /* WineViewControlleriPhone.xib */,
 				350510251E47D82100292DA8 /* WebViewController.h */,
 				350510261E47D82100292DA8 /* WebViewController.m */,
 				350510271E47D82100292DA8 /* WebViewController.xib */,
@@ -140,6 +145,7 @@
 			children = (
 				353DE1281E6F352B0085532B /* glassScore.png */,
 				354568DF1E6DF6F000C32A96 /* Background.png */,
+				353DE1351E706FEB0085532B /* BackgroundiPhone.png */,
 				359084511E3FC11500090A3D /* zarate.gif */,
 				359084531E3FC11E00090A3D /* comtesDeChampagne.jpg */,
 				354218C31E312A8800A78FA4 /* bembibre.jpg */,
@@ -208,6 +214,7 @@
 			files = (
 				3596C5B61E4CA53500B52DCC /* sinImagen.png in Resources */,
 				354218A41E30E69600A78FA4 /* Assets.xcassets in Resources */,
+				353DE1341E702FAE0085532B /* WineViewControlleriPhone.xib in Resources */,
 				354218BF1E31224C00A78FA4 /* WineViewController.xib in Resources */,
 				350510291E47D82100292DA8 /* WebViewController.xib in Resources */,
 				353DE12B1E701E670085532B /* Images.xcassets in Resources */,
@@ -216,6 +223,7 @@
 				354568E01E6DF6F000C32A96 /* Background.png in Resources */,
 				353DE1291E6F352B0085532B /* glassScore.png in Resources */,
 				354218C41E312A8800A78FA4 /* bembibre.jpg in Resources */,
+				353DE1361E706FEB0085532B /* BackgroundiPhone.png in Resources */,
 				354218A71E30E69600A78FA4 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

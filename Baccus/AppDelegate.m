@@ -104,10 +104,10 @@
 -(void) customizeAppereance {
     
     //Estas propiedades se aplicarán en toda la aplicación, como si de un CSS se tratase
-    UIColor * wineRed = [UIColor colorWithRed: 0.5
-                                        green: 0
-                                         blue: 0.13
-                                        alpha: 1];
+    UIColor * wineRed = [UIColor colorWithRed:0.62
+                                        green:0.16
+                                         blue:0.33
+                                        alpha:1.0];
     
     UIColor *black = [UIColor colorWithRed: 0
                                      green: 0

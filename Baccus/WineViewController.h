@@ -9,6 +9,7 @@
  #import <UIKit/UIKit.h>
  #import "WineModel.h" //Importamos el modelo el vino
  #import "WineryTableViewController.h" //Y el de la vinoteca
+ #define IS_IPHONE  UI_USER_INTERFACE_IDIOM()==UIUserInterfaceIdiomPhone
  
  @interface WineViewController : UIViewController <UISplitViewControllerDelegate, WineryTableViewControllerDelegate> //Este será el delegado del SplitViewController y de la clase WineryTableViewController
  

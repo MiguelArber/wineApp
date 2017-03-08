@@ -233,4 +233,21 @@
                                          animated: YES];
 }
 
+//No permitimos la vista horizontal iPhone
+- (BOOL)shouldAutorotateToInterfaceOrientation: (UIInterfaceOrientation)interfaceOrientation {
+    if (IS_IPHONE) {
+        return NO;
+    } else {
+        return YES;
+    }
+}
+
+-(NSUInteger) supportedInterfaceOrientations {
+    if (IS_IPHONE) {
+        return UIInterfaceOrientationMaskPortrait;
+    } else {
+        return UIInterfaceOrientationMaskAllButUpsideDown;
+    }
+}
+
 @end

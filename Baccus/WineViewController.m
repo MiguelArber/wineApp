@@ -13,9 +13,16 @@
 
 -(id) initWithModel: (WineModel *) aModel { //Inicializador
     
-    if(self == [super initWithNibName:nil bundle:nil]) { //si todo va bien...
-        _model = aModel; //Asignamos el modelo al pasado por parámetro
-        self.title = aModel.name; //Le damos un nombre a la pestaña del TabBar
+    // Cargamos un xib u otro según el dispositivo
+    NSString *nibName = nil;
+    
+    if (IS_IPHONE) {
+        nibName = @"WineViewControlleriPhone";
+    }
+    
+    if (self = [super initWithNibName:nibName bundle:nil]) {
+        _model = aModel;
+        self.title = aModel.name;
     }
     
     return self; //Lo retornamos
@@ -139,6 +146,23 @@
     self.model = aWine; //Cambiamos el modelo al del vino seleccionado
     self.title = aWine.name; //Actualizamos también el título en la navBar
     [self syncModelWithView]; //Sincronizamos modelo y vista
+}
+
+//No permitimos la vista horizontal iPhone
+- (BOOL)shouldAutorotateToInterfaceOrientation: (UIInterfaceOrientation)interfaceOrientation {
+    if (IS_IPHONE) {
+        return NO;
+    } else {
+        return YES;
+    }
+}
+
+-(NSUInteger) supportedInterfaceOrientations {
+    if (IS_IPHONE) {
+        return UIInterfaceOrientationMaskPortrait;
+    } else {
+        return UIInterfaceOrientationMaskAllButUpsideDown;
+    }
 }
     
 /*
