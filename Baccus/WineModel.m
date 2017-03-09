@@ -15,6 +15,7 @@
 #pragma mark - Propiedades
 -(UIImage *) photo {
     // Esto va a bloquear y se debería de hacer en segundo plano
+    //TODO: Guardar las imagenes en caché de forma que la carga sea lenta sólo la priemra vez
     
     if (_photo == nil) { // Carga perezosa: solo cargo la imagen si hace falta.
         if([NSData dataWithContentsOfURL:self.photoURL] != nil) {

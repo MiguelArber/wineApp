@@ -73,7 +73,7 @@
     self.typeLabel.text = self.model.type;
     self.originLabel.text = self.model.origin;
     self.notesLabel.text = self.model.notes;
-    [self.wineryNameLabel setTitle:self.model.wineCompanyName forState:UIControlStateNormal];
+    [self.wineryNameLabel setTitle:[NSString stringWithFormat:@"%@ %@",self.model.wineCompanyName, @"🌐"] forState:UIControlStateNormal];
     self.photoView.image = self.model.photo;
     self.grapesLabel.text = [self arrayToString: self.model.grapes]; //Llamamos al método ArrayToString y le pasamos nuestro array de uvas
     
@@ -106,10 +106,17 @@
 -(void) dispalyRating:(int) aRating { //Método que nos permite mostrar las puntuaciones
     
     [self clearRatings]; //Primero lo ponemos todo a 0
-    UIImage *glass = [UIImage imageNamed:@"glassScore"]; //Cargamos la imagen de la copita
+    UIImage *glass = [UIImage imageNamed:@"glassScore"]; //Cargamos la imagen de la copa llena
+    UIImage *emptyGlass = [UIImage imageNamed:@"emptyGlassScore"]; //Y la de la copa vacía
     
-    for(int i = 0; i < aRating; i++) { //For desde 0 hasta su puntuación (0-5)
-        [[self.ratingViews objectAtIndex:i] setImage:glass]; //Mostramos las i primeras copitas
+    int i = 0;
+    
+    for(i; i < aRating; i++) { //Y ahora desde 0 hasta su puntuación (0-5)
+        [[self.ratingViews objectAtIndex:i] setImage:glass]; //Mostramos las i primeras copas llenas
+    }
+    
+    for(i; i<5; i++) {
+        [[self.ratingViews objectAtIndex:i] setImage:emptyGlass]; //El resto serán copas vacías
     }
     
 }

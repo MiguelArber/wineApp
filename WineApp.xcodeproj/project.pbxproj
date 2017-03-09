@@ -27,6 +27,9 @@
 		359084521E3FC11500090A3D /* zarate.gif in Resources */ = {isa = PBXBuildFile; fileRef = 359084511E3FC11500090A3D /* zarate.gif */; };
 		359084541E3FC11E00090A3D /* comtesDeChampagne.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 359084531E3FC11E00090A3D /* comtesDeChampagne.jpg */; };
 		3596C5B61E4CA53500B52DCC /* sinImagen.png in Resources */ = {isa = PBXBuildFile; fileRef = 3596C5B51E4CA53500B52DCC /* sinImagen.png */; };
+		35BD0DD71E71DF9D00272407 /* emptyGlassScore.png in Resources */ = {isa = PBXBuildFile; fileRef = 35BD0DD61E71DF9D00272407 /* emptyGlassScore.png */; };
+		35BD0DD91E71E21200272407 /* header.png in Resources */ = {isa = PBXBuildFile; fileRef = 35BD0DD81E71E21200272407 /* header.png */; };
+		35BD0DDB1E71E3C400272407 /* Copas.png in Resources */ = {isa = PBXBuildFile; fileRef = 35BD0DDA1E71E3C400272407 /* Copas.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +61,9 @@
 		359084511E3FC11500090A3D /* zarate.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = zarate.gif; sourceTree = "<group>"; };
 		359084531E3FC11E00090A3D /* comtesDeChampagne.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = comtesDeChampagne.jpg; sourceTree = "<group>"; };
 		3596C5B51E4CA53500B52DCC /* sinImagen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sinImagen.png; sourceTree = "<group>"; };
+		35BD0DD61E71DF9D00272407 /* emptyGlassScore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emptyGlassScore.png; sourceTree = "<group>"; };
+		35BD0DD81E71E21200272407 /* header.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = header.png; sourceTree = "<group>"; };
+		35BD0DDA1E71E3C400272407 /* Copas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Copas.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +149,9 @@
 		354218C21E31293400A78FA4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				35BD0DDA1E71E3C400272407 /* Copas.png */,
+				35BD0DD81E71E21200272407 /* header.png */,
+				35BD0DD61E71DF9D00272407 /* emptyGlassScore.png */,
 				353DE1281E6F352B0085532B /* glassScore.png */,
 				354568DF1E6DF6F000C32A96 /* Background.png */,
 				353DE1351E706FEB0085532B /* BackgroundiPhone.png */,
@@ -214,7 +223,9 @@
 			files = (
 				3596C5B61E4CA53500B52DCC /* sinImagen.png in Resources */,
 				354218A41E30E69600A78FA4 /* Assets.xcassets in Resources */,
+				35BD0DDB1E71E3C400272407 /* Copas.png in Resources */,
 				353DE1341E702FAE0085532B /* WineViewControlleriPhone.xib in Resources */,
+				35BD0DD91E71E21200272407 /* header.png in Resources */,
 				354218BF1E31224C00A78FA4 /* WineViewController.xib in Resources */,
 				350510291E47D82100292DA8 /* WebViewController.xib in Resources */,
 				353DE12B1E701E670085532B /* Images.xcassets in Resources */,
@@ -223,6 +234,7 @@
 				354568E01E6DF6F000C32A96 /* Background.png in Resources */,
 				353DE1291E6F352B0085532B /* glassScore.png in Resources */,
 				354218C41E312A8800A78FA4 /* bembibre.jpg in Resources */,
+				35BD0DD71E71DF9D00272407 /* emptyGlassScore.png in Resources */,
 				353DE1361E706FEB0085532B /* BackgroundiPhone.png in Resources */,
 				354218A71E30E69600A78FA4 /* LaunchScreen.storyboard in Resources */,
 			);

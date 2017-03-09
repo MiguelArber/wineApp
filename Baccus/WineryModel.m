@@ -39,7 +39,7 @@
     
 }
 
--(id) init { //Meto vinos a capón
+-(id) init { //Metemos los vinos
     if(self == [super init]) {
         NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://static.keepcoding.io/baccus/wines.json"]]; //Le pasamos la URL del JSON
         
@@ -50,10 +50,10 @@
                                                          error:&error];
         if(data != nil) { //Sin errores
             
+            //Transformamos esta representación JSON en un NSArray
             NSArray * JSONObjects = [NSJSONSerialization JSONObjectWithData:data
                                                                     options:kNilOptions
-                                                                      error:&error]; //Transformamos esta representación JSON a un NSArray
-            
+                                                                      error:&error];
             if (JSONObjects != nil) {
                 //No ha habido error
                 for(NSDictionary *dict in JSONObjects){
@@ -75,13 +75,14 @@
                             }
                             else {
                                 [self.whiteWines addObject:wine];
-                            }                    }
+                            }
+                        }
                         else {
                             if (!self.otherWines) {
-                                self.otherWines = [NSMutableArray arrayWithObject:wine]; //fix/11a
+                                self.otherWines = [NSMutableArray arrayWithObject:wine];
                             }
                             else {
-                                [self.otherWines addObject:wine]; //fix/11a
+                                [self.otherWines addObject:wine];
                             }
                         }
                     }

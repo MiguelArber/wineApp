@@ -71,11 +71,11 @@
     //Mostramos el título de las tres distintas secciones de la tableView
     
     if(section == RED_WINE_SECTION) {
-        return @"Red wines:";
+        return @"Tintos:";
     } else if(section == WHITE_WINE_SECTION) {
-        return @"White wines:";
+        return @"Blancos:";
     } else {
-        return @"Other:";
+        return @"Otros:";
     }
     
 }
@@ -226,7 +226,7 @@
 -(void) wineryTableViewController: (WineryTableViewController *)wineryVC //Implementamos el código del delegado del WineryTableViewController
                     didSelectWine: (WineModel *) aWine {
     
-    //En la vista de iPhone WineyTableViewController es su propia delegada, por tanto es necesario avisarse a sí misma de que se ha seleccionado un nuevo vino, para así cambiar de la vista de la tabla de vinos a la del vino seleccionado
+    //En la vista de iPhone WineyTableViewController es su propia delegada, por tanto debe avisarse a sí misma de que se ha seleccionado un nuevo vino, para así cambiar de la vista de la tabla de vinos a la del vino seleccionado
     
     WineViewController *wineVC = [[WineViewController alloc] initWithModel:aWine];
     [self.navigationController pushViewController: wineVC
