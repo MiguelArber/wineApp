@@ -7,11 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "WineModel.h"
-#import "WineViewController.h"
-#import "WebViewController.h"
-#import "WineryModel.h"
-#import "WineryTableViewController.h"
+#import "MainMenu.h"
 
 @interface AppDelegate ()
 
@@ -19,64 +15,23 @@
 
 @implementation AppDelegate
 
--(UIViewController *) rootViewControllerForPhoneWithModel: (WineryModel *) aModel {
-    
-    //Creamos los controladores
-    WineryTableViewController *wineryVC = [[WineryTableViewController alloc] initWithModel:aModel style:UITableViewStylePlain]; //Controlador para la vinoteca
-    
-    //Creamos los combinadores (NavigationBar sólo para la vinoteca)
-    UINavigationController*wineryNav=[[UINavigationController alloc]initWithRootViewController:wineryVC];
-    
-    //Asignamos los delegados
-    wineryVC.delegate = wineryVC; //wineryVC es delegada de sí misma
-    
-    return wineryNav;
-}
-
--(UIViewController *) rootViewControllerForPadWithModel: (WineryModel *) aModel {
-    
-    //Creamos los controladores
-    WineryTableViewController *wineryVC = [[WineryTableViewController alloc] initWithModel:aModel style:UITableViewStylePlain]; //Controlador para la vinoteca
-    WineViewController *wineVC = [[WineViewController alloc] initWithModel:[wineryVC lastWineSelected]]; //Controlador para los vinos: Se visualizará el último vino seleccionado por el usuario
-    
-    //Creamos los combinadores (NavigationBar para el vino y la vinoteca)
-    UINavigationController *wineNav = [[UINavigationController alloc]initWithRootViewController:wineVC];
-    UINavigationController*wineryNav=[[UINavigationController alloc]initWithRootViewController:wineryVC];
-    
-    //Paso las dos vistas a la SplitView: Primero la que siempre está activa y luego la del modo apaisado
-    UISplitViewController *splitVC = [[UISplitViewController alloc] init];
-    splitVC.viewControllers = @[wineryNav, wineNav];
-    
-    //Asignamos los delegados
-    splitVC.delegate = wineVC; //El delegado del SplitView es WineViewController
-    wineryVC.delegate = wineVC; //Al igual que también lo es de WineryTableViewController
-    
-    return splitVC;
-}
-
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     //Configuramos el aspecto de las Navigation
     [self customizeAppereance];
     
-    //1. Creamos el modelo
-    WineryModel *winery = [[WineryModel alloc] init]; //Modelo de la vinoteca
+    MainMenu *menuVC = [[MainMenu alloc] init];
     
-    UIViewController *rootVC = nil;
-    if(!(IS_IPHONE)) {
-        //Estamos en un iPad
-        rootVC = [self rootViewControllerForPadWithModel:winery];
-    } else {
-        rootVC = [self rootViewControllerForPhoneWithModel:winery];
-    }
+    /*UINavigationController*menuNav=[[UINavigationController alloc]initWithRootViewController:menuVC];*/
     
-    self.window.rootViewController = rootVC;
+    self.window.rootViewController = menuVC; //Cargo el menú principal
     
     self.window.backgroundColor = [UIColor whiteColor];
+    
     [self.window makeKeyAndVisible];
     return YES;
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

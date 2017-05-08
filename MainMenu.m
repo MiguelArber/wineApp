@@ -7,9 +7,22 @@
 //
 
 #import "MainMenu.h"
+#import "WineViewController.h"
+#import "WineryTableViewController.h"
+#import "WineryModel.h"
+#import "WineModel.h"
+#include <time.h>
+#include <stdlib.h>
 
 @implementation MainMenu
 
+-(id) init {
+    
+    WineryModel *aModel = [[WineryModel alloc] init]; //Modelo de la vinoteca
+    self.model = aModel;
+    
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -21,29 +34,133 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - ViewControllers
+
+-(UIViewController *) rootViewControllerForPhoneWithModel: (WineryModel *) aModel
+                                                     type: (NSString *) aType {
+    
+    //Creamos los controladores
+    WineryTableViewController *wineryVC = [[WineryTableViewController alloc]
+                                            initWithModel: aModel
+                                                    style: UITableViewStylePlain
+                                                     type: aType]; //Controlador para la vinoteca
+    
+    //Creamos los combinadores (NavigationBar sólo para la vinoteca)
+    UINavigationController*wineryNav=[[UINavigationController alloc]initWithRootViewController:wineryVC];
+    
+    //Asignamos los delegados
+    wineryVC.delegate = wineryVC; //wineryVC es delegada de sí misma
+    
+    return wineryNav;
+}
+
+
+-(UIViewController *) rootViewControllerForPadWithModel: (WineryModel *) aModel
+                                                   type: (NSString *) aType {
+    
+    //Creamos los controladores
+    WineryTableViewController *wineryVC = [[WineryTableViewController alloc]
+                                           initWithModel: aModel
+                                           style: UITableViewStylePlain
+                                           type: aType]; //Controlador para la vinoteca
+    WineViewController *wineVC = [[WineViewController alloc] initWithModel:[wineryVC lastWineSelected]]; //Controlador para los vinos: Se visualizará el último vino seleccionado por el usuario
+    
+    //Creamos los combinadores (NavigationBar para el vino y la vinoteca)
+    UINavigationController *wineNav = [[UINavigationController alloc]initWithRootViewController:wineVC];
+    UINavigationController*wineryNav=[[UINavigationController alloc]initWithRootViewController:wineryVC];
+    
+    //Paso las dos vistas a la SplitView: Primero la que siempre está activa y luego la del modo apaisado
+    UISplitViewController *splitVC = [[UISplitViewController alloc] init];
+    splitVC.viewControllers = @[wineryNav, wineNav];
+    
+    //Asignamos los delegados
+    splitVC.delegate = wineVC; //El delegado del SplitView es WineViewController
+    wineryVC.delegate = wineVC; //Al igual que también lo es de WineryTableViewController
+    
+    return splitVC;
+}
+
+
 #pragma mark - Actions
 
 -(IBAction)displayRed:(id)sender {
     
+     UIViewController *rootVC = nil;
+     if(!(IS_IPHONE)) {
+     //Estamos en un iPad
+         rootVC = [self rootViewControllerForPadWithModel:_model
+                                                     type:@"Tinto"];
+     } else {
+         rootVC = [self rootViewControllerForPhoneWithModel:_model
+                                                       type:@"Tinto"];
+     }
+    
+     [self presentViewController:rootVC animated:YES completion:nil];
 
 }
 
 -(IBAction)displayWhite:(id)sender {
     
+    UIViewController *rootVC = nil;
+    if(!(IS_IPHONE)) {
+        //Estamos en un iPad
+        rootVC = [self rootViewControllerForPadWithModel:_model
+                                                    type:@"Blanco"];
+    } else {
+        rootVC = [self rootViewControllerForPhoneWithModel:_model
+                                                      type:@"Blanco"];
+    }
+    
+    [self presentViewController:rootVC animated:YES completion:nil];
     
 }
 
 -(IBAction)displayRose:(id)sender {
     
+    UIViewController *rootVC = nil;
+    if(!(IS_IPHONE)) {
+        //Estamos en un iPad
+        rootVC = [self rootViewControllerForPadWithModel:_model
+                                                    type:@"Rosado"];
+    } else {
+        rootVC = [self rootViewControllerForPhoneWithModel:_model
+                                                      type:@"Rosado"];
+    }
+    
+    [self presentViewController:rootVC animated:YES completion:nil];
     
 }
 
 -(void) syncModelWithView { //Sincronizamos la vista con el modelo
 
-    self.nameLabel.text = @"RANDOM";
-    self.originLabel.text = @"RANDOM";
-    self.typeLabel.text = @"RANDOM";
-    [self dispalyRating: 1];
+    //Vino aleatorio cada vez que se muestra el menú principal
+    
+    int tintos = self.model.redWineCount;
+    int blancos = self.model.whiteWineCount;
+    int rosados = self.model.otherWineCount;
+    WineModel *randomWine = [[WineModel alloc] init];
+    
+    srand(time(NULL));
+    int r = rand() % 3;
+    
+    if(r == 0) {
+        srand(time(NULL));
+        int r = rand() % tintos;
+        randomWine = [self.model redWineAtIndex:r];
+    } else if (r == 1) {
+        srand(time(NULL));
+        int r = rand() % blancos;
+        randomWine = [self.model whiteWineAtIndex:r];
+    } else {
+        srand(time(NULL));
+        int r = rand() % rosados;
+        randomWine = [self.model otherWineAtIndex:r];
+    }
+    
+    self.nameLabel.text = randomWine.name;
+    self.originLabel.text = randomWine.origin;
+    self.typeLabel.text = randomWine.type;
+    [self dispalyRating: randomWine.rating];
 }
 
 -(void) clearRatings { //Método que utilizaremos para dejar en 0 la puntuación del vino
@@ -70,6 +187,13 @@
         [[self.ratingViews objectAtIndex:i] setImage:emptyGlass]; //El resto serán copas vacías
     }
     
+}
+
+//Sincronizamos el modelo y la vista
+-(void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:animated];
+    [self syncModelWithView]; //Llamámos al método definido más abajo para la sincronización con el modelo
 }
 
 /*

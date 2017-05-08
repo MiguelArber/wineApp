@@ -17,17 +17,24 @@
 @implementation WineryTableViewController
 
 -(id) initWithModel: (WineryModel *) aModel
-             style: (UITableViewStyle) aStyle {  //Inicializador
+              style: (UITableViewStyle) aStyle
+               type: (NSString *) aType {  //Inicializador
     
     if(self = [super initWithStyle:aStyle]) { //si todo va bien...
         
         _model = aModel; //Asignamos el modelo al pasado por parámetro
         self.title = @"WineApp";
+        self.type = aType;
 
     }
     
     return self; //Lo retornamos
     
+}
+
+- (IBAction)Back
+{
+    [self dismissViewControllerAnimated:YES completion:nil]; // Desde iOS 6
 }
 
 - (void)viewDidLoad {
@@ -37,6 +44,12 @@
     if (self.splitViewController.displayMode == UISplitViewControllerDisplayModePrimaryHidden) {
         self.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem; //Hace aparecer el botón que hace visible el SplitView en vertical
     }
+    
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle: @"Menu"
+                                                                   style: UIBarButtonItemStyleBordered
+                                                                  target: self
+                                                                  action: @selector(Back)];
+    self.navigationItem.leftBarButtonItem = backButton;
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -52,6 +65,7 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+
     /*self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed: 0.5
                                                                            green: 0
                                                                             blue: 0.13
@@ -70,32 +84,51 @@
     
     //Mostramos el título de las tres distintas secciones de la tableView
     
-    if(section == RED_WINE_SECTION) {
+    /*if(section == RED_WINE_SECTION) {
         return @"Tintos:";
     } else if(section == WHITE_WINE_SECTION) {
         return @"Blancos:";
     } else {
         return @"Otros:";
+    }*/
+    
+    if([_type  isEqual: @"Tinto"]) {
+        return @"Tintos:";
+    } else if([_type  isEqual: @"Blanco"]) {
+        return @"Blancos:";
+    } else {
+        return @"Rosados:";
     }
+    
     
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 
-    return 3; //Tenemos tres tipos de vino por tanto necesitaremos 3 secciones para la tabla
+    //return 3; //Tenemos tres tipos de vino por tanto necesitaremos 3 secciones para la tabla
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
     //Devolvemos el numero de vinos de cada tipo (que hay en cada sección) para ello usamos el método redWineCount
-    
+    /*
     if(section == RED_WINE_SECTION) {
         return [self.model redWineCount];
     } else if(section == WHITE_WINE_SECTION) {
         return [self.model whiteWineCount];
     } else {
         return [self.model otherWineCount];
+    }*/
+    
+    if([_type  isEqual: @"Tinto"]) {
+        return [self.model redWineCount];
+    } else if([_type  isEqual: @"Blanco"]) {
+        return [self.model whiteWineCount];
+    } else {
+        return [self.model otherWineCount];
     }
+    
 }
 
 
@@ -113,7 +146,7 @@
     //Miramos el tipo de modelo (vino) con el que estamos tratando
     
     WineModel *wine = nil;
-    
+    /*
     if(indexPath.section == RED_WINE_SECTION) {
         wine = [self.model redWineAtIndex: (int) indexPath.row]; //Obtenemos el vino tinto correspondiente
     } else if(indexPath.section == WHITE_WINE_SECTION) {
@@ -121,6 +154,16 @@
     } else {
         wine = [self.model otherWineAtIndex: (int) indexPath.row]; //Obtenemos el vino otro correspondiente
     }
+     */
+    
+    if([_type  isEqual: @"Tinto"]) {
+        wine = [self.model redWineAtIndex: (int) indexPath.row]; //Obtenemos el vino tinto correspondiente
+    } else if([_type  isEqual: @"Blanco"]) {
+        wine = [self.model whiteWineAtIndex: (int) indexPath.row];  //Obtenemos el vino blanco correspondiente
+    } else {
+        wine = [self.model otherWineAtIndex: (int) indexPath.row]; //Obtenemos el vino otro correspondiente
+    }
+    
     
     //Sincronizamos la celda (vista) con el modelo
     
@@ -163,9 +206,17 @@
     WineModel *wine = nil;
     
     //Averiguamos el tipo de vino del que se trata
-    if(indexPath.section == RED_WINE_SECTION) {
+    /*if(indexPath.section == RED_WINE_SECTION) {
         wine = [self.model redWineAtIndex:indexPath.row];
     } else if(indexPath.section == WHITE_WINE_SECTION) {
+        wine = [self.model whiteWineAtIndex:indexPath.row];
+    } else {
+        wine = [self.model otherWineAtIndex:indexPath.row];
+    }*/
+    
+    if([_type  isEqual: @"Tinto"]) {
+        wine = [self.model redWineAtIndex:indexPath.row];
+    } else if([_type  isEqual: @"Blanco"]) {
         wine = [self.model whiteWineAtIndex:indexPath.row];
     } else {
         wine = [self.model otherWineAtIndex:indexPath.row];

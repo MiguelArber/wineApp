@@ -33,6 +33,7 @@
 //Desciende de UITableViewController e implementa el protocolo WineryTableViewControllerDelegate
 
     @property(nonatomic, strong) WineryModel *model; //Modelo de la vinoteca
+    @property(nonatomic, strong) NSString *type;
 
     /*Definimos el delegado:
         id(indica que cualquier objeto puede ser delegado de WineryTableViewController
@@ -42,7 +43,9 @@
 
 
     -(id) initWithModel: (WineryModel *) aModel //Inicializador del modelo
-             style: (UITableViewStyle) aStyle; //Sin asterisco puesto que no es un objeto sino una constante
+                  style: (UITableViewStyle) aStyle //Sin asterisco, es una constante
+                   type: (NSString *) aType;
+
     -(WineModel *) lastWineSelected; //devolverá el último vino seleccionado
 
 @end

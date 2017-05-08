@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WineryModel.h"
 
 @interface MainMenu : UIViewController
 
@@ -20,9 +21,10 @@
  @property (weak, nonatomic) IBOutlet UILabel *originLabel; //Etiqueta para la D.O.
  @property (weak, nonatomic) IBOutlet UILabel *typeLabel; //Etiqueta para el tipo
  @property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *ratingViews; //Conjunto de ImageViews dentro de un array para la puntuación del vino (0-5)
+ @property (strong, nonatomic) WineryModel *model; //Necesitamos un modelo de datos (strong: se usa para objetos y demás)
 
  -(IBAction) displayRed:(id)sender; //Acción al pulsar el botón de la URL
  -(IBAction) displayWhite:(id)sender; //Acción al pulsar el botón de la URL
  -(IBAction) displayRose:(id)sender; //Acción al pulsar el botón de la URL
-
+ -(id) init;
 @end

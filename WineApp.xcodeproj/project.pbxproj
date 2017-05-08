@@ -10,7 +10,6 @@
 		350510281E47D82100292DA8 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 350510261E47D82100292DA8 /* WebViewController.m */; };
 		350510291E47D82100292DA8 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 350510271E47D82100292DA8 /* WebViewController.xib */; };
 		353DE1291E6F352B0085532B /* glassScore.png in Resources */ = {isa = PBXBuildFile; fileRef = 353DE1281E6F352B0085532B /* glassScore.png */; };
-		353DE12B1E701E670085532B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 353DE12A1E701E670085532B /* Images.xcassets */; };
 		353DE1341E702FAE0085532B /* WineViewControlleriPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 353DE1321E702FAE0085532B /* WineViewControlleriPhone.xib */; };
 		353DE1361E706FEB0085532B /* BackgroundiPhone.png in Resources */ = {isa = PBXBuildFile; fileRef = 353DE1351E706FEB0085532B /* BackgroundiPhone.png */; };
 		3542189F1E30E69600A78FA4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3542189E1E30E69600A78FA4 /* main.m */; };
@@ -47,7 +46,6 @@
 		350510261E47D82100292DA8 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		350510271E47D82100292DA8 /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
 		353DE1281E6F352B0085532B /* glassScore.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = glassScore.png; sourceTree = "<group>"; };
-		353DE12A1E701E670085532B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = WineApp/Images.xcassets; sourceTree = SOURCE_ROOT; };
 		353DE1321E702FAE0085532B /* WineViewControlleriPhone.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WineViewControlleriPhone.xib; sourceTree = "<group>"; };
 		353DE1351E706FEB0085532B /* BackgroundiPhone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BackgroundiPhone.png; sourceTree = "<group>"; };
 		3542189A1E30E69600A78FA4 /* WineApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WineApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -125,7 +123,6 @@
 				354218A31E30E69600A78FA4 /* Assets.xcassets */,
 				354218A51E30E69600A78FA4 /* LaunchScreen.storyboard */,
 				354218A81E30E69600A78FA4 /* Info.plist */,
-				353DE12A1E701E670085532B /* Images.xcassets */,
 				3542189D1E30E69600A78FA4 /* Supporting Files */,
 			);
 			name = WineApp;
@@ -264,7 +261,6 @@
 				356013AD1EB2190A0091811F /* CopaRojosMenu.png in Resources */,
 				354218BF1E31224C00A78FA4 /* WineViewController.xib in Resources */,
 				350510291E47D82100292DA8 /* WebViewController.xib in Resources */,
-				353DE12B1E701E670085532B /* Images.xcassets in Resources */,
 				359084541E3FC11E00090A3D /* comtesDeChampagne.jpg in Resources */,
 				359084521E3FC11500090A3D /* zarate.gif in Resources */,
 				354568E01E6DF6F000C32A96 /* Background.png in Resources */,
