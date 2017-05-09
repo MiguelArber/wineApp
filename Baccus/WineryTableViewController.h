@@ -34,6 +34,7 @@
 
     @property(nonatomic, strong) WineryModel *model; //Modelo de la vinoteca
     @property(nonatomic, strong) NSString *type;
+    @property (nonatomic, strong) id previewingContext;
 
     /*Definimos el delegado:
         id(indica que cualquier objeto puede ser delegado de WineryTableViewController

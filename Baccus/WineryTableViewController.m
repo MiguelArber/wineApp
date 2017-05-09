@@ -51,6 +51,12 @@
                                                                   action: @selector(Back)];
     self.navigationItem.leftBarButtonItem = backButton;
     
+    if ([self isForceTouchAvailable]) {
+        self.previewingContext =
+        [self registerForPreviewingWithDelegate:self
+                                     sourceView:self.view];
+    }
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -76,6 +82,70 @@
                                                                        blue: 0
                                                                       alpha: 1]; //Cambio el color del texto del botón del SplitView
     */
+}
+
+#pragma mark - 3D Touch: Peek and Pop
+
+- (BOOL) isForceTouchAvailable {
+    BOOL isForceTouchAvailable = NO;
+    if ([self.traitCollection respondsToSelector:
+         @selector(forceTouchCapability)]) {
+        isForceTouchAvailable = self.traitCollection
+        .forceTouchCapability == UIForceTouchCapabilityAvailable;
+    }
+    return isForceTouchAvailable;
+}
+
+- (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection {
+    [super traitCollectionDidChange:previousTraitCollection];
+    if ([self isForceTouchAvailable]) {
+        if (!self.previewingContext) {
+            self.previewingContext =
+            [self registerForPreviewingWithDelegate:self
+                                         sourceView:self.view];
+        }
+    } else {
+        if (self.previewingContext) {
+            [self unregisterForPreviewingWithContext:self.previewingContext];
+            self.previewingContext = nil;
+        }
+    }
+}
+
+- (nullable UIViewController *)previewingContext:(id <UIViewControllerPreviewing>)previewingContext viewControllerForLocation:(CGPoint)location {
+    
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:location];
+    
+    WineModel *wine = nil;
+    
+    if([_type  isEqual: @"Tinto"]) {
+        wine = [self.model redWineAtIndex: (int) indexPath.row]; //Obtenemos el vino tinto correspondiente
+    } else if([_type  isEqual: @"Blanco"]) {
+        wine = [self.model whiteWineAtIndex: (int) indexPath.row];  //Obtenemos el vino blanco correspondiente
+    } else {
+        wine = [self.model otherWineAtIndex: (int) indexPath.row]; //Obtenemos el vino otro correspondiente
+    }
+    
+    if (indexPath) {
+        UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+        //id *content = [self wineForIndexAtPath: indexPath];
+        
+        WineViewController *wineVC = [[WineViewController alloc] initWithModel: wine];
+        //previewController.content = content;
+        
+        previewingContext.sourceRect = cell.frame;
+        
+        return wineVC;
+    }
+    return nil;
+}
+
+- (void)previewingContext: (id <UIViewControllerPreviewing>) previewingContext
+     commitViewController: (WineViewController *) wineVC {
+    
+    //id *content = viewControllerToCommit.content;
+    [self.navigationController pushViewController: wineVC
+                                         animated: YES];
 }
 
 #pragma mark - Table view data source
