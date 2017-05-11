@@ -158,8 +158,7 @@
     }
     
     self.nameLabel.text = randomWine.name;
-    self.originLabel.text = randomWine.origin;
-    self.typeLabel.text = randomWine.type;
+    self.typeLabel.text = [NSString stringWithFormat:@"%@%@%@", randomWine.type,@", ", randomWine.origin];
     [self dispalyRating: randomWine.rating];
 }
 
