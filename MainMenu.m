@@ -20,6 +20,10 @@
     
     WineryModel *aModel = [[WineryModel alloc] init]; //Modelo de la vinoteca
     self.model = aModel;
+    WineModel *randomWine = [[WineModel alloc] init];
+    self.randomWine = randomWine;
+    
+        NSLog(@"%@",[self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count-1]);
     
     return self;
 }
@@ -131,6 +135,17 @@
     
 }
 
+-(IBAction)displayRandom:(id)sender {
+    
+    WineViewController *wineVC = [[WineViewController alloc] initWithModel: _randomWine];
+    
+    //Creamos los combinadores (NavigationBar sólo para la vinoteca)
+    UINavigationController*wineNav=[[UINavigationController alloc]initWithRootViewController:wineVC];
+    
+    [self presentViewController: wineNav animated: YES completion:nil];
+    
+}
+
 -(void) syncModelWithView { //Sincronizamos la vista con el modelo
 
     //Vino aleatorio cada vez que se muestra el menú principal
@@ -138,28 +153,24 @@
     int tintos = self.model.redWineCount;
     int blancos = self.model.whiteWineCount;
     int rosados = self.model.otherWineCount;
-    WineModel *randomWine = [[WineModel alloc] init];
     
     srand(time(NULL));
     int r = rand() % 3;
     
     if(r == 0) {
-        srand(time(NULL));
         int r = rand() % tintos;
-        randomWine = [self.model redWineAtIndex:r];
+        self.randomWine = [self.model redWineAtIndex:r];
     } else if (r == 1) {
-        srand(time(NULL));
         int r = rand() % blancos;
-        randomWine = [self.model whiteWineAtIndex:r];
+        self.randomWine = [self.model whiteWineAtIndex:r];
     } else {
-        srand(time(NULL));
         int r = rand() % rosados;
-        randomWine = [self.model otherWineAtIndex:r];
+        self.randomWine = [self.model otherWineAtIndex:r];
     }
     
-    self.nameLabel.text = randomWine.name;
-    self.typeLabel.text = [NSString stringWithFormat:@"%@%@%@", randomWine.type,@", ", randomWine.origin];
-    [self dispalyRating: randomWine.rating];
+    self.nameLabel.text = self.randomWine.name;
+    self.typeLabel.text = [NSString stringWithFormat:@"%@%@%@", self.randomWine.type,@", ", self.randomWine.origin];
+    [self dispalyRating: self.randomWine.rating];
 }
 
 -(void) clearRatings { //Método que utilizaremos para dejar en 0 la puntuación del vino

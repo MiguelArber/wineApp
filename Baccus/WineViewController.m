@@ -33,8 +33,22 @@
     
     [super viewWillAppear:animated];
     [self syncModelWithView]; //Llamámos al método definido más abajo para la sincronización con el modelo
-    self.edgesForExtendedLayout =UIRectEdgeNone; //Evitamos que los elementos se muestren debajo de la NavBar
+    self.edgesForExtendedLayout = UIRectEdgeNone; //Evitamos que los elementos se muestren debajo de la NavBar
     }
+
+- (IBAction)Back
+{
+    [self dismissViewControllerAnimated:YES completion:nil]; // Desde iOS 6
+}
+
+- (UIViewController *)backViewController { //Devuelve la vista predecesora, si es el menú principal devolverá nil
+    NSInteger numberOfViewControllers = self.navigationController.viewControllers.count;
+    
+    if (numberOfViewControllers < 2)
+        return nil;
+    else
+        return [self.navigationController.viewControllers objectAtIndex:numberOfViewControllers - 2];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -43,6 +57,19 @@
     if (self.splitViewController.displayMode == UISplitViewControllerDisplayModePrimaryHidden) {
         self.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem; //Hace aparecer el botón que hace visible el SplitView en vertical
     }
+    
+
+    //Muestra el botón de menú si se llega directamente desde él (Vino aleatorio)
+    if (self.backViewController == nil) {
+        UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle: @"Menu"
+                                                                       style: UIBarButtonItemStyleBordered
+                                                                      target: self
+                                                                      action: @selector(Back)];
+        self.navigationItem.leftBarButtonItem = backButton;
+    }
+    
+    /*
+    */
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;

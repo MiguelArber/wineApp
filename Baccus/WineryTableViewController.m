@@ -43,6 +43,11 @@
     
     if (self.splitViewController.displayMode == UISplitViewControllerDisplayModePrimaryHidden) {
         self.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem; //Hace aparecer el botón que hace visible el SplitView en vertical
+        //TESTEAR COMPORTAMIENTO EN IPAD
+        /*UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle: @"Menu"
+                                                                       style: UIBarButtonItemStyleBordered
+                                                                      target: self
+                                                                      action: @selector(Back)];*/
     }
     
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle: @"Menu"
