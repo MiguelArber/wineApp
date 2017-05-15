@@ -22,9 +22,7 @@
     self.model = aModel;
     WineModel *randomWine = [[WineModel alloc] init];
     self.randomWine = randomWine;
-    
-        NSLog(@"%@",[self.navigationController.viewControllers objectAtIndex:self.navigationController.viewControllers.count-1]);
-    
+
     return self;
 }
 
@@ -57,7 +55,6 @@
     
     return wineryNav;
 }
-
 
 -(UIViewController *) rootViewControllerForPadWithModel: (WineryModel *) aModel
                                                    type: (NSString *) aType {
@@ -138,6 +135,7 @@
 -(IBAction)displayRandom:(id)sender {
     
     WineViewController *wineVC = [[WineViewController alloc] initWithModel: _randomWine];
+    wineVC.menuButtonEnabled = TRUE;
     
     //Creamos los combinadores (NavigationBar sólo para la vinoteca)
     UINavigationController*wineNav=[[UINavigationController alloc]initWithRootViewController:wineVC];
@@ -171,6 +169,8 @@
     self.nameLabel.text = self.randomWine.name;
     self.typeLabel.text = [NSString stringWithFormat:@"%@%@%@", self.randomWine.type,@", ", self.randomWine.origin];
     [self dispalyRating: self.randomWine.rating];
+    
+    
 }
 
 -(void) clearRatings { //Método que utilizaremos para dejar en 0 la puntuación del vino
@@ -204,6 +204,7 @@
     
     [super viewWillAppear:animated];
     [self syncModelWithView]; //Llamámos al método definido más abajo para la sincronización con el modelo
+    [super viewWillAppear:animated];
 }
 
 /*

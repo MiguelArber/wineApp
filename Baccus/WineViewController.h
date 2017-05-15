@@ -24,6 +24,7 @@
  @property (strong, nonatomic) WineModel *model; //Necesitamos un modelo de datos (strong: se usa para objetos y demás)
  @property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *ratingViews; //Conjunto de ImageViews dentro de un array para la puntuación del vino (0-5)
 
+ @property(nonatomic) BOOL *menuButtonEnabled;
 
  -(id) initWithModel: (WineModel *) aModel; //Inicializador del modelo
  -(IBAction) displayWeb:(id)sender; //Acción al pulsar el botón de la URL

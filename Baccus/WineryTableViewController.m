@@ -11,7 +11,8 @@
 #import "WineViewController.h"
 
 @interface WineryTableViewController ()
-
+@property (strong, nonatomic) UISearchController *searchController;
+@property (strong, nonatomic) NSArray *results;
 @end
 
 @implementation WineryTableViewController
@@ -40,6 +41,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
+    self.searchController.searchResultsUpdater = self;
+    self.searchController.dimsBackgroundDuringPresentation = NO;
+    self.searchController.searchBar.delegate = self;
+    self.tableView.tableHeaderView = self.searchController.searchBar;
+    self.definesPresentationContext = YES;
     
     if (self.splitViewController.displayMode == UISplitViewControllerDisplayModePrimaryHidden) {
         self.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem; //Hace aparecer el botón que hace visible el SplitView en vertical
@@ -61,6 +68,8 @@
         [self registerForPreviewingWithDelegate:self
                                      sourceView:self.view];
     }
+    
+    
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -87,6 +96,30 @@
                                                                        blue: 0
                                                                       alpha: 1]; //Cambio el color del texto del botón del SplitView
     */
+}
+
+#pragma mark - Search function
+
+
+- (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
+    
+    // filter the search results
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"self.name contains [cd] %@", self.searchController.searchBar.text];
+
+    if([_type  isEqual: @"Tinto"]) {
+        self.results = [self.model.redWines filteredArrayUsingPredicate:predicate];
+        [self.tableView reloadData];
+
+    } else if([_type  isEqual: @"Blanco"]) {
+        self.results = [self.model.whiteWines filteredArrayUsingPredicate:predicate];
+        NSLog(@"Search Results are: %@", [self.results description]);
+        [self.tableView reloadData];
+    } else {
+        self.results = [self.model.otherWines filteredArrayUsingPredicate:predicate];
+        [self.tableView reloadData];
+    }
+    
+    // NSLog(@"Search Results are: %@", [self.results description]);
 }
 
 #pragma mark - 3D Touch: Peek and Pop
@@ -197,11 +230,23 @@
     }*/
     
     if([_type  isEqual: @"Tinto"]) {
-        return [self.model redWineCount];
+        if([self.searchController.searchBar.text  isEqual: @""]) {
+            return [self.model redWineCount];
+        } else {
+            return [self.results count];
+        }
     } else if([_type  isEqual: @"Blanco"]) {
-        return [self.model whiteWineCount];
+        if([self.searchController.searchBar.text  isEqual: @""]) {
+            return [self.model whiteWineCount];
+        } else {
+            return [self.results count];
+        }
     } else {
-        return [self.model otherWineCount];
+        if([self.searchController.searchBar.text  isEqual: @""]) {
+            return [self.model otherWineCount];
+        } else {
+            return [self.results count];
+        }
     }
     
 }
@@ -232,11 +277,23 @@
      */
     
     if([_type  isEqual: @"Tinto"]) {
-        wine = [self.model redWineAtIndex: (int) indexPath.row]; //Obtenemos el vino tinto correspondiente
+        if([self.searchController.searchBar.text  isEqual: @""]) {
+            wine = [self.model redWineAtIndex: (int) indexPath.row]; //Obtenemos el vino tinto correspondiente
+        } else {
+            wine = _results[indexPath.row];
+        }
     } else if([_type  isEqual: @"Blanco"]) {
-        wine = [self.model whiteWineAtIndex: (int) indexPath.row];  //Obtenemos el vino blanco correspondiente
+        if([self.searchController.searchBar.text  isEqual: @""]) {
+            wine = [self.model whiteWineAtIndex: (int) indexPath.row];  //Obtenemos el vino blanco correspondiente
+        } else {
+            wine = _results[indexPath.row];
+        }
     } else {
-        wine = [self.model otherWineAtIndex: (int) indexPath.row]; //Obtenemos el vino otro correspondiente
+        if([self.searchController.searchBar.text  isEqual: @""]) {
+            wine = [self.model otherWineAtIndex: (int) indexPath.row]; //Obtenemos el vino otro correspondiente
+        } else {
+            wine = _results[indexPath.row];
+        }
     }
     
     
@@ -290,11 +347,23 @@
     }*/
     
     if([_type  isEqual: @"Tinto"]) {
-        wine = [self.model redWineAtIndex:indexPath.row];
+        if([self.searchController.searchBar.text  isEqual: @""]) {
+            wine = [self.model redWineAtIndex: (int) indexPath.row]; //Obtenemos el vino tinto correspondiente
+        } else {
+            wine = _results[indexPath.row];
+        }
     } else if([_type  isEqual: @"Blanco"]) {
-        wine = [self.model whiteWineAtIndex:indexPath.row];
+        if([self.searchController.searchBar.text  isEqual: @""]) {
+            wine = [self.model whiteWineAtIndex: (int) indexPath.row];  //Obtenemos el vino blanco correspondiente
+        } else {
+            wine = _results[indexPath.row];
+        }
     } else {
-        wine = [self.model otherWineAtIndex:indexPath.row];
+        if([self.searchController.searchBar.text  isEqual: @""]) {
+            wine = [self.model otherWineAtIndex: (int) indexPath.row]; //Obtenemos el vino otro correspondiente
+        } else {
+            wine = _results[indexPath.row];
+        }
     }
     
     return wine; //Lo retornamos

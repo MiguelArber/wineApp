@@ -60,7 +60,7 @@
     
 
     //Muestra el botón de menú si se llega directamente desde él (Vino aleatorio)
-    if (self.backViewController == nil) {
+    if (self.menuButtonEnabled == TRUE) {
         UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle: @"Menu"
                                                                        style: UIBarButtonItemStyleBordered
                                                                       target: self

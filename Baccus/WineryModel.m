@@ -9,9 +9,9 @@
 #import "WineryModel.h"
 
 @interface WineryModel ()
-@property (strong, nonatomic) NSMutableArray *redWines; //Pasamos de NSArray a NSMutableArray
+/*@property (strong, nonatomic) NSMutableArray *redWines; //Pasamos de NSArray a NSMutableArray
 @property (strong, nonatomic) NSMutableArray *whiteWines;
-@property (strong, nonatomic) NSMutableArray *otherWines;
+@property (strong, nonatomic) NSMutableArray *otherWines;*/
 
 
 @end

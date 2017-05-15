@@ -15,6 +15,10 @@
 
 @interface WineryModel : NSObject
 
+@property (strong, nonatomic) NSMutableArray *redWines; //Pasamos de NSArray a NSMutableArray
+@property (strong, nonatomic) NSMutableArray *whiteWines;
+@property (strong, nonatomic) NSMutableArray *otherWines;
+
 @property(readonly, nonatomic) int redWineCount; //La variable readonly crea una variable solo de lectura, el compilador no creará un setter para esta variable
 @property(readonly, nonatomic) int whiteWineCount;
 @property(readonly, nonatomic) int otherWineCount;
