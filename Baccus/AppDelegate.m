@@ -10,28 +10,71 @@
 #import "MainMenu.h"
 
 @interface AppDelegate ()
-
+@property (strong, nonnull) MainMenu *menuVC;
 @end
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    [self createItems3DTouch];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     //Configuramos el aspecto de las Navigation
     [self customizeAppereance];
     
-    MainMenu *menuVC = [[MainMenu alloc] init];
+    self.menuVC = [[MainMenu alloc] init];
     
     /*UINavigationController*menuNav=[[UINavigationController alloc]initWithRootViewController:menuVC];*/
     
-    self.window.rootViewController = menuVC; //Cargo el menú principal
+    self.window.rootViewController = self.menuVC; //Cargo el menú principal
     
     self.window.backgroundColor = [UIColor whiteColor];
     
     [self.window makeKeyAndVisible];
     return YES;
     
+}
+
+- (void)createItems3DTouch {
+    //ICONO DEL ACCESO DIRECTO
+    UIApplicationShortcutIcon *iconRed = [UIApplicationShortcutIcon iconWithTemplateImageName:@"CopaRojosMenu"];
+    UIApplicationShortcutIcon *iconWhite = [UIApplicationShortcutIcon iconWithTemplateImageName:@"CopaBlancosMenu"];
+    UIApplicationShortcutIcon *iconOther = [UIApplicationShortcutIcon iconWithTemplateImageName:@"CopaRosadosMenu"];
+    //TITULO Y SUBTITULO DE LOS ACCESOS DIRECTOS
+    UIApplicationShortcutItem *quickAccessRed = [[UIMutableApplicationShortcutItem alloc]initWithType:@"red.wines.quickaccess" localizedTitle:@"Tintos" localizedSubtitle:@"Visualizar vinos tintos" icon:iconRed userInfo:nil];
+    UIApplicationShortcutItem *quickAccessWhite = [[UIMutableApplicationShortcutItem alloc]initWithType:@"white.wines.quickaccess" localizedTitle:@"Blancos" localizedSubtitle:@"Visualizar vinos blancos" icon:iconWhite userInfo:nil];
+
+    UIApplicationShortcutItem *quickAccessOther= [[UIMutableApplicationShortcutItem alloc]initWithType:@"other.wines.quickaccess" localizedTitle:@"Rosados" localizedSubtitle:@"Visualizar vinos rosados" icon:iconOther userInfo:nil];
+
+    //ARRAY CON LOS ELEMENTOS
+    NSArray *items = @[quickAccessRed, quickAccessWhite, quickAccessOther];
+    [UIApplication sharedApplication].shortcutItems = items;
+}
+
+- (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL))completionHandler {
+
+    if ([shortcutItem.type isEqualToString:@"red.wines.quickaccess"]) {
+        self.menuVC = [[MainMenu alloc] init];
+        self.window.rootViewController = self.menuVC; //Cargo el menú principal
+        self.menuVC.displayRed;
+    }
+    else if([shortcutItem.type isEqualToString:@"white.wines.quickaccess"]) {
+        self.menuVC = [[MainMenu alloc] init];
+        self.window.rootViewController = self.menuVC; //Cargo el menú principal
+        self.menuVC.displayWhite;
+    }
+    else if([shortcutItem.type isEqualToString:@"other.wines.quickaccess"]) {
+        self.menuVC = [[MainMenu alloc] init];
+        self.window.rootViewController = self.menuVC; //Cargo el menú principal
+        self.menuVC.displayOther;
+    }
+}
+
+- (void)showViewControllerDos {
+    UIViewController *Vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil]instantiateViewControllerWithIdentifier:@"vistaDos"];
+    [self.window.rootViewController presentViewController:Vc animated:YES completion:nil];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

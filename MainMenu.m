@@ -144,6 +144,54 @@
     
 }
 
+- (void) displayRed {
+    
+    UIViewController *rootVC = nil;
+    if(!(IS_IPHONE)) {
+        //Estamos en un iPad
+        rootVC = [self rootViewControllerForPadWithModel:_model
+                                                    type:@"Tinto"];
+    } else {
+        rootVC = [self rootViewControllerForPhoneWithModel:_model
+                                                      type:@"Tinto"];
+    }
+    
+    [self presentViewController:rootVC animated:YES completion:nil];
+    
+}
+
+-(void) displayWhite  {
+    
+    UIViewController *rootVC = nil;
+    if(!(IS_IPHONE)) {
+        //Estamos en un iPad
+        rootVC = [self rootViewControllerForPadWithModel:_model
+                                                    type:@"Blanco"];
+    } else {
+        rootVC = [self rootViewControllerForPhoneWithModel:_model
+                                                      type:@"Blanco"];
+    }
+    
+    [self presentViewController:rootVC animated:YES completion:nil];
+    
+}
+
+-(void) displayOther {
+    
+    UIViewController *rootVC = nil;
+    if(!(IS_IPHONE)) {
+        //Estamos en un iPad
+        rootVC = [self rootViewControllerForPadWithModel:_model
+                                                    type:@"Rosado"];
+    } else {
+        rootVC = [self rootViewControllerForPhoneWithModel:_model
+                                                      type:@"Rosado"];
+    }
+    
+    [self presentViewController:rootVC animated:YES completion:nil];
+    
+}
+
 -(void) syncModelWithView { //Sincronizamos la vista con el modelo
 
     //Vino aleatorio cada vez que se muestra el menú principal

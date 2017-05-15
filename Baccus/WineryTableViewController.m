@@ -41,6 +41,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //BARA DE BÚSQUEDA////////////////////////////////////////////////////////////////////////
     self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
     self.searchController.searchResultsUpdater = self;
     self.searchController.dimsBackgroundDuringPresentation = NO;
@@ -48,34 +49,24 @@
     self.tableView.tableHeaderView = self.searchController.searchBar;
     self.definesPresentationContext = YES;
     
+    //SPLIT VIEW EN iPAD///////////////////////////////////////////////////////////////////////
     if (self.splitViewController.displayMode == UISplitViewControllerDisplayModePrimaryHidden) {
         self.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem; //Hace aparecer el botón que hace visible el SplitView en vertical
-        //TESTEAR COMPORTAMIENTO EN IPAD
-        /*UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle: @"Menu"
-                                                                       style: UIBarButtonItemStyleBordered
-                                                                      target: self
-                                                                      action: @selector(Back)];*/
     }
     
+    //BOTÓN DE VOLVER ATRÁS////////////////////////////////////////////////////////////////////
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle: @"Menu"
                                                                    style: UIBarButtonItemStyleBordered
                                                                   target: self
                                                                   action: @selector(Back)];
     self.navigationItem.leftBarButtonItem = backButton;
     
+    //FORCE TOUCH///////////////////////////////////////////////////////////////////////////////
     if ([self isForceTouchAvailable]) {
         self.previewingContext =
         [self registerForPreviewingWithDelegate:self
                                      sourceView:self.view];
     }
-    
-    
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -157,11 +148,23 @@
     WineModel *wine = nil;
     
     if([_type  isEqual: @"Tinto"]) {
-        wine = [self.model redWineAtIndex: (int) indexPath.row]; //Obtenemos el vino tinto correspondiente
+        if([self.searchController.searchBar.text  isEqual: @""]) {
+            wine = [self.model redWineAtIndex: (int) indexPath.row]; //Obtenemos el vino tinto correspondiente
+        } else {
+            wine = _results[indexPath.row];
+        }
     } else if([_type  isEqual: @"Blanco"]) {
-        wine = [self.model whiteWineAtIndex: (int) indexPath.row];  //Obtenemos el vino blanco correspondiente
+        if([self.searchController.searchBar.text  isEqual: @""]) {
+            wine = [self.model whiteWineAtIndex: (int) indexPath.row];  //Obtenemos el vino blanco correspondiente
+        } else {
+            wine = _results[indexPath.row];
+        }
     } else {
-        wine = [self.model otherWineAtIndex: (int) indexPath.row]; //Obtenemos el vino otro correspondiente
+        if([self.searchController.searchBar.text  isEqual: @""]) {
+            wine = [self.model otherWineAtIndex: (int) indexPath.row]; //Obtenemos el vino otro correspondiente
+        } else {
+            wine = _results[indexPath.row];
+        }
     }
     
     if (indexPath) {
