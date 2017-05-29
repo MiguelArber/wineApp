@@ -9,7 +9,6 @@
 #import "WineryTableViewController.h"
 #import "WineModel.h"
 #import "WineViewController.h"
-#import "UIImageView+AFNetworking.h"
 
 @interface WineryTableViewController ()
 @property (strong, nonatomic) UISearchController *searchController;
