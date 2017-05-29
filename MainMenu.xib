@@ -27,11 +27,11 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="header.png" translatesAutoresizingMaskIntoConstraints="NO" id="QNg-Hw-dku">
-                    <rect key="frame" x="0.0" y="0.0" width="415" height="351"/>
+                    <rect key="frame" x="0.0" y="0.0" width="415" height="350"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ulG-mb-lob">
-                    <rect key="frame" x="0.0" y="380" width="415" height="90"/>
+                    <rect key="frame" x="0.0" y="380" width="415" height="89"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="Button" image="BandaRojosMenu.png"/>
                     <connections>
@@ -39,7 +39,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" alpha="0.80000000000000004" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="372-EP-RLg">
-                    <rect key="frame" x="0.0" y="470" width="415" height="90"/>
+                    <rect key="frame" x="0.0" y="469" width="415" height="91"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <state key="normal" title="Button" image="BandaBlancosMenu.png"/>
                     <connections>
@@ -66,57 +66,57 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CopaRojosMenu.png" translatesAutoresizingMaskIntoConstraints="NO" id="vm1-8Z-Ad1">
-                    <rect key="frame" x="367" y="401" width="27" height="48"/>
+                    <rect key="frame" x="367" y="401" width="26" height="47"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CopaBlancosMenu.png" translatesAutoresizingMaskIntoConstraints="NO" id="YDu-0P-KYb" userLabel="CopaBlancosMenu.png">
-                    <rect key="frame" x="367" y="491" width="27" height="48"/>
+                    <rect key="frame" x="367" y="490" width="26" height="48"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="CopaRosadosMenu.png" translatesAutoresizingMaskIntoConstraints="NO" id="u4c-Jy-RVZ" userLabel="CopaRosadosMenu.png">
-                    <rect key="frame" x="367" y="581" width="27" height="48"/>
+                    <rect key="frame" x="367" y="581" width="26" height="48"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="¿Conoces...?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="BTi-BK-P0t">
-                    <rect key="frame" x="20" y="650" width="124" height="35"/>
+                    <rect key="frame" x="20" y="650" width="124" height="34"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="30"/>
-                    <color key="textColor" red="0.26274509800000001" green="0.26274509800000001" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.25487628579139709" green="0.25491833686828613" blue="0.25486710667610168" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tipo, denominación de origen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="fqE-BL-74Q">
-                    <rect key="frame" x="30" y="707" width="226" height="21"/>
+                    <rect key="frame" x="29" y="706" width="226" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="17"/>
                     <color key="textColor" red="0.26274509800000001" green="0.26274509800000001" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v5W-YL-KQr" userLabel="1 copa">
-                    <rect key="frame" x="264" y="686" width="21" height="38"/>
+                    <rect key="frame" x="264" y="685" width="20" height="38"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mhr-Oi-Zmf" userLabel="2 copas">
-                    <rect key="frame" x="294" y="686" width="21" height="38"/>
+                    <rect key="frame" x="293" y="685" width="22" height="38"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3MK-ZV-P6z" userLabel="3 copas">
-                    <rect key="frame" x="323" y="686" width="21" height="38"/>
+                    <rect key="frame" x="322" y="685" width="22" height="38"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bsn-Fu-N22" userLabel="4 copas">
-                    <rect key="frame" x="352" y="686" width="21" height="38"/>
+                    <rect key="frame" x="351" y="685" width="22" height="38"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GrM-5j-WkV" userLabel="5 copas">
-                    <rect key="frame" x="381" y="686" width="21" height="38"/>
+                    <rect key="frame" x="380" y="685" width="22" height="38"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Copas.png" translatesAutoresizingMaskIntoConstraints="NO" id="grB-Bf-h9R">
-                    <rect key="frame" x="116" y="178" width="180" height="91"/>
+                    <rect key="frame" x="115" y="177" width="181" height="91"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="clip" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aIO-yR-Fo9">
-                    <rect key="frame" x="30" y="380" width="120" height="90"/>
+                    <rect key="frame" x="29" y="380" width="120" height="89"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <attributedString key="attributedText">
                         <fragment content="Vinos">
@@ -148,7 +148,7 @@ Cg
                     <size key="shadowOffset" width="0.0" height="0.0"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="c7z-9N-qpe">
-                    <rect key="frame" x="30" y="470" width="120" height="90"/>
+                    <rect key="frame" x="29" y="469" width="120" height="91"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <attributedString key="attributedText">
                         <fragment content="Vinos">
@@ -179,14 +179,14 @@ Cg
                     <size key="shadowOffset" width="0.0" height="0.0"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="WineApp" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qpl-vE-NUf">
-                    <rect key="frame" x="117" y="277" width="180" height="74"/>
+                    <rect key="frame" x="117" y="277" width="180" height="73"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="38"/>
                     <color key="textColor" red="0.36862745098039218" green="0.0" blue="0.16862745098039217" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="5kX-yi-ddT">
-                    <rect key="frame" x="30" y="561" width="120" height="89"/>
+                    <rect key="frame" x="29" y="560" width="120" height="90"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <attributedString key="attributedText">
                         <fragment content="Vinos">
@@ -217,12 +217,16 @@ Cg
                     <size key="shadowOffset" width="0.0" height="0.0"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Vino" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="tbq-uR-NpB">
-                    <rect key="frame" x="30" y="686" width="226" height="21"/>
+                    <rect key="frame" x="29" y="685" width="226" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" name="GillSans-SemiBold" family="Gill Sans" pointSize="17"/>
                     <color key="textColor" red="0.26274509800000001" green="0.26274509800000001" blue="0.26274509800000001" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="RandomIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="uwx-HE-TMh">
+                    <rect key="frame" x="384" y="660" width="15" height="15"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="0.89803921568627454" green="0.89411764705882357" blue="0.83921568627450982" alpha="1" colorSpace="calibratedRGB"/>
             <point key="canvasLocation" x="23" y="53"/>
@@ -237,6 +241,7 @@ Cg
         <image name="CopaRojosMenu.png" width="42" height="104"/>
         <image name="CopaRosadosMenu.png" width="43" height="107"/>
         <image name="Copas.png" width="549" height="488"/>
+        <image name="RandomIcon.png" width="64" height="64"/>
         <image name="header.png" width="2048" height="2048"/>
     </resources>
 </document>

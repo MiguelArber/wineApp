@@ -11,7 +11,7 @@
 
 #define NO_RATING -1 //Definimos una constante para los vinos sin puntuación
 
-@interface WineModel : NSObject
+@interface WineModel  : NSObject <NSCoding>
 
 @property(copy, nonatomic) NSString *type; //Tipo NSString
 @property(strong, nonatomic) UIImage *photo; //Tipo imagen
@@ -25,6 +25,9 @@
 @property(copy, nonatomic) NSString *wineCompanyName;
 
 //Métodos de clase//////////////////////////////////////////////////////////////////////////////////////
+
+- (id) initWithCoder: (NSCoder *) decoder;
+- (void) encodeWithCoder: (NSCoder *) encoder;
 
 //Constructor completo
 +(id) wineWithName: (NSString *) aName

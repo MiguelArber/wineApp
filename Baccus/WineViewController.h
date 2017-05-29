@@ -20,6 +20,8 @@
  @property (weak, nonatomic) IBOutlet UILabel *grapesLabel; //Etiqueta para el tipo de uva
  @property (weak, nonatomic) IBOutlet UITextView *notesLabel; //Etiqueta para las notas
  @property (weak, nonatomic) IBOutlet UIImageView *photoView; //Imagen del vino
+ @property(weak, nonatomic) IBOutlet UIActivityIndicatorView *activityView; //Creamos una animación de loading
+
  
  @property (strong, nonatomic) WineModel *model; //Necesitamos un modelo de datos (strong: se usa para objetos y demás)
  @property (strong, nonatomic) IBOutletCollection(UIImageView) NSArray *ratingViews; //Conjunto de ImageViews dentro de un array para la puntuación del vino (0-5)

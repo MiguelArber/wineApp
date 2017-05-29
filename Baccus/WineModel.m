@@ -13,19 +13,47 @@
 @synthesize photo = _photo; //Al definir una propiead (definida en el .m como property) hay casos en los que es necesario realizar un @sinthesize (esto normalmente se realiza de forma automática por el compilador). Esto es necesario cuando creamos una propiedad que sería de sólo lectura y tenemos un getter personalizado.
 
 #pragma mark - Propiedades
--(UIImage *) photo {
+/*-(UIImage *) photo {
     // Esto va a bloquear y se debería de hacer en segundo plano
     //TODO: Guardar las imagenes en caché de forma que la carga sea lenta sólo la priemra vez
     
     if (_photo == nil) { // Carga perezosa: solo cargo la imagen si hace falta.
         if([NSData dataWithContentsOfURL:self.photoURL] != nil) {
-            _photo = [UIImage imageWithData:[NSData dataWithContentsOfURL:self.photoURL]];
+            //_photo = [UIImage imageWithData:[NSData dataWithContentsOfURL:self.photoURL]];
         } else {
             _photo = [UIImage imageNamed:@"sinImagen.png"]; //En caso de que un vino no tenga imagen se mostrará esta imagen por defecto
         }
     }
     return _photo;
     
+}*/
+
+- (id) initWithCoder:(NSCoder *)decoder {
+    if (self = [super init]) {
+        self.name = [decoder decodeObjectForKey:@"name"];
+        self.wineCompanyName = [decoder decodeObjectForKey:@"company"];
+        self.type = [decoder decodeObjectForKey:@"type"];
+        self.origin = [decoder decodeObjectForKey:@"origin"];
+        self.grapes = [self extractGrapesFromJSONArray:[decoder decodeObjectForKey:@"grapes"]];
+        self.wineCompanyWeb = [NSURL URLWithString:[decoder decodeObjectForKey:@"wine_web"]];
+        self.notes = [decoder decodeObjectForKey:@"notes"];
+        self.rating = [[decoder decodeObjectForKey:@"rating"] intValue];
+        self.photoURL = [NSURL URLWithString:[decoder decodeObjectForKey:@"picture"]];
+
+    }
+    return self;
+}
+
+- (void) encodeWithCoder:(NSCoder *)encoder {
+    [encoder encodeObject:self.name forKey:@"name"];
+    [encoder encodeObject:self.wineCompanyWeb forKey:@"company"];
+    [encoder encodeObject:self.type forKey:@"type"];
+    [encoder encodeObject:self.origin forKey:@"origin"];
+    [encoder encodeObject:self.grapes forKey:@"grapes"];
+    [encoder encodeObject:self.wineCompanyWeb forKey:@"wine_web"];
+    [encoder encodeObject:self.notes forKey:@"notes"];
+    [encoder encodeInt:self.rating forKey:@"rating"];
+    [encoder encodeObject:self.photoURL forKey:@"picture"];
 }
 
 #pragma mark - Init
@@ -126,7 +154,7 @@
                          type:[aDict objectForKey:@"type"]
                        origin:[aDict objectForKey:@"origin"]
                        grapes:[self extractGrapesFromJSONArray:[aDict objectForKey:@"grapes"]]
-                wineCompanyWeb:[NSURL URLWithString:[aDict objectForKey:@"wine_web"]]
+               wineCompanyWeb:[NSURL URLWithString:[aDict objectForKey:@"wine_web"]]
                         notes:[aDict objectForKey:@"notes"]
                        rating:[[aDict objectForKey:@"rating"]intValue]
                      photoURL:[NSURL URLWithString:[aDict objectForKey:@"picture"]]

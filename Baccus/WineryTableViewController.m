@@ -9,6 +9,7 @@
 #import "WineryTableViewController.h"
 #import "WineModel.h"
 #import "WineViewController.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface WineryTableViewController ()
 @property (strong, nonatomic) UISearchController *searchController;
@@ -26,7 +27,7 @@
         _model = aModel; //Asignamos el modelo al pasado por parámetro
         self.title = @"WineApp";
         self.type = aType;
-
+        
     }
     
     return self; //Lo retornamos
@@ -56,7 +57,7 @@
     
     //BOTÓN DE VOLVER ATRÁS////////////////////////////////////////////////////////////////////
     UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle: @"Menu"
-                                                                   style: UIBarButtonItemStyleBordered
+                                                                   style: UIBarButtonItemStylePlain
                                                                   target: self
                                                                   action: @selector(Back)];
     self.navigationItem.leftBarButtonItem = backButton;
@@ -76,17 +77,17 @@
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-
-    /*self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed: 0.5
-                                                                           green: 0
-                                                                            blue: 0.13
-                                                                           alpha: 1];//Cambiamos el color de la barra de navegación
     
-    self.navigationItem.leftBarButtonItem.tintColor = [UIColor colorWithRed: 0
-                                                                      green: 0
-                                                                       blue: 0
-                                                                      alpha: 1]; //Cambio el color del texto del botón del SplitView
-    */
+    /*self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed: 0.5
+     green: 0
+     blue: 0.13
+     alpha: 1];//Cambiamos el color de la barra de navegación
+     
+     self.navigationItem.leftBarButtonItem.tintColor = [UIColor colorWithRed: 0
+     green: 0
+     blue: 0
+     alpha: 1]; //Cambio el color del texto del botón del SplitView
+     */
 }
 
 #pragma mark - Search function
@@ -96,11 +97,11 @@
     
     // filter the search results
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"self.name contains [cd] %@", self.searchController.searchBar.text];
-
+    
     if([_type  isEqual: @"Tinto"]) {
         self.results = [self.model.redWines filteredArrayUsingPredicate:predicate];
         [self.tableView reloadData];
-
+        
     } else if([_type  isEqual: @"Blanco"]) {
         self.results = [self.model.whiteWines filteredArrayUsingPredicate:predicate];
         NSLog(@"Search Results are: %@", [self.results description]);
@@ -196,12 +197,12 @@
     //Mostramos el título de las tres distintas secciones de la tableView
     
     /*if(section == RED_WINE_SECTION) {
-        return @"Tintos:";
-    } else if(section == WHITE_WINE_SECTION) {
-        return @"Blancos:";
-    } else {
-        return @"Otros:";
-    }*/
+     return @"Tintos:";
+     } else if(section == WHITE_WINE_SECTION) {
+     return @"Blancos:";
+     } else {
+     return @"Otros:";
+     }*/
     
     if([_type  isEqual: @"Tinto"]) {
         return @"Tintos:";
@@ -215,22 +216,22 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-
+    
     //return 3; //Tenemos tres tipos de vino por tanto necesitaremos 3 secciones para la tabla
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
+    
     //Devolvemos el numero de vinos de cada tipo (que hay en cada sección) para ello usamos el método redWineCount
     /*
-    if(section == RED_WINE_SECTION) {
-        return [self.model redWineCount];
-    } else if(section == WHITE_WINE_SECTION) {
-        return [self.model whiteWineCount];
-    } else {
-        return [self.model otherWineCount];
-    }*/
+     if(section == RED_WINE_SECTION) {
+     return [self.model redWineCount];
+     } else if(section == WHITE_WINE_SECTION) {
+     return [self.model whiteWineCount];
+     } else {
+     return [self.model otherWineCount];
+     }*/
     
     if([_type  isEqual: @"Tinto"]) {
         if([self.searchController.searchBar.text  isEqual: @""]) {
@@ -270,13 +271,13 @@
     
     WineModel *wine = nil;
     /*
-    if(indexPath.section == RED_WINE_SECTION) {
-        wine = [self.model redWineAtIndex: (int) indexPath.row]; //Obtenemos el vino tinto correspondiente
-    } else if(indexPath.section == WHITE_WINE_SECTION) {
-        wine = [self.model whiteWineAtIndex: (int) indexPath.row];  //Obtenemos el vino blanco correspondiente
-    } else {
-        wine = [self.model otherWineAtIndex: (int) indexPath.row]; //Obtenemos el vino otro correspondiente
-    }
+     if(indexPath.section == RED_WINE_SECTION) {
+     wine = [self.model redWineAtIndex: (int) indexPath.row]; //Obtenemos el vino tinto correspondiente
+     } else if(indexPath.section == WHITE_WINE_SECTION) {
+     wine = [self.model whiteWineAtIndex: (int) indexPath.row];  //Obtenemos el vino blanco correspondiente
+     } else {
+     wine = [self.model otherWineAtIndex: (int) indexPath.row]; //Obtenemos el vino otro correspondiente
+     }
      */
     
     if([_type  isEqual: @"Tinto"]) {
@@ -299,12 +300,39 @@
         }
     }
     
-    
-    //Sincronizamos la celda (vista) con el modelo
-    
-    cell.imageView.image = wine.photo; //Foto
     cell.textLabel.text = wine.name; //Título (nombre del vino)
     cell.detailTextLabel.text = wine.wineCompanyName; //Subtítulo (bodega)
+    
+    //Carga de las imagenes de forma asíncrona
+    if(wine.photoURL != nil) {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            //Creamos un hilo asíncrono para descargarnos la imagen
+            
+            UIImage *wineThumbnail = [UIImage imageWithData:[NSData dataWithContentsOfURL:wine.photoURL]];
+            
+            if (wineThumbnail) { //Cuando se descargue...
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    //Volvemos al hilo principal para actualizar la UI
+                    if ([[tableView indexPathsForVisibleRows] containsObject:indexPath]) {
+                        //Comprobamos si aún es necesario asignar la imagen
+                        UITableViewCell * correctCell = [self.tableView cellForRowAtIndexPath:indexPath];
+                        //Obtenemos la celda correcta pues podría haber cambiado
+                        [[correctCell imageView] setImage:wineThumbnail];
+                        [correctCell setNeedsLayout];
+                        //Actualizamos la celda con su imagen
+                    }
+                });
+            } else { //En caso de que no se haya podido descargar la imagen...
+                UITableViewCell * correctCell = [self.tableView cellForRowAtIndexPath:indexPath];
+                [[correctCell imageView] setImage:[UIImage imageNamed:@"sinImagen.png"]];
+                [correctCell setNeedsLayout];
+            }
+        });
+    } else { //En caso de que el vino no tenga imagen...
+        UITableViewCell * correctCell = [self.tableView cellForRowAtIndexPath:indexPath];
+        [[correctCell imageView] setImage:[UIImage imageNamed:@"sinImagen.png"]];
+        [correctCell setNeedsLayout];
+    }
     
     // Devuelvo la celda...
     return cell;
@@ -320,7 +348,7 @@
     WineModel *wine = [self wineForIndexAtPath:indexPath];
     
     [self.delegate wineryTableViewController:self didSelectWine:wine]; //Mandamos un mensaje al delegado pasándole el controlador (él mismo) y el vino que ha tocado el usuario
-
+    
     
     //Notificación
     /* Dadas las limitaciones de los delegados en Cocoa (una clase puede ser delegada de varias pero solo puede tener un delegado), será necesario crear una notificación que será enviada al WebViewController (mediante el centro de notificaciones) para avisarle de que hemos cambiado de vino, y por tanto, la vista que se está mostrando (la web) debe cambiar a la ficha del nuevo vino seleccionado
@@ -342,12 +370,12 @@
     
     //Averiguamos el tipo de vino del que se trata
     /*if(indexPath.section == RED_WINE_SECTION) {
-        wine = [self.model redWineAtIndex:indexPath.row];
-    } else if(indexPath.section == WHITE_WINE_SECTION) {
-        wine = [self.model whiteWineAtIndex:indexPath.row];
-    } else {
-        wine = [self.model otherWineAtIndex:indexPath.row];
-    }*/
+     wine = [self.model redWineAtIndex:indexPath.row];
+     } else if(indexPath.section == WHITE_WINE_SECTION) {
+     wine = [self.model whiteWineAtIndex:indexPath.row];
+     } else {
+     wine = [self.model otherWineAtIndex:indexPath.row];
+     }*/
     
     if([_type  isEqual: @"Tinto"]) {
         if([self.searchController.searchBar.text  isEqual: @""]) {

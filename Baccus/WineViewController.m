@@ -62,7 +62,7 @@
     //Muestra el botón de menú si se llega directamente desde él (Vino aleatorio)
     if (self.menuButtonEnabled == TRUE) {
         UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle: @"Menu"
-                                                                       style: UIBarButtonItemStyleBordered
+                                                                       style: UIBarButtonItemStylePlain
                                                                       target: self
                                                                       action: @selector(Back)];
         self.navigationItem.leftBarButtonItem = backButton;
@@ -95,6 +95,36 @@
 
 #pragma mark - Utilities
 
+-(void) photo {
+    [self.activityView setHidden:NO]; //Mostramos la animación
+    [self.activityView startAnimating]; //La animamos
+    //Carga de las imagenes de forma asíncrona
+    if(_model.photoURL != nil) {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            //Creamos un hilo asíncrono para descargarnos la imagen
+            
+            UIImage *wineThumbnail = [UIImage imageWithData:[NSData dataWithContentsOfURL:_model.photoURL]];
+            
+            if (wineThumbnail) { //Cuando se descargue...
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    //Volvemos al hilo principal para actualizar la UI
+                    [self.activityView setHidden:YES]; //Ocultamos la animación
+                    [self.activityView stopAnimating]; //La paramos
+                    self.photoView.image = wineThumbnail;
+                });
+            } else { //En caso de que no se haya podido descargar la imagen...
+                [self.activityView setHidden:YES]; //Ocultamos la animación
+                [self.activityView stopAnimating]; //La paramos
+                self.photoView.image = [UIImage imageNamed:@"sinImagen.png"];
+            }
+        });
+    } else { //En caso de que el vino no tenga imagen...
+        [self.activityView setHidden:YES]; //Ocultamos la animación
+        [self.activityView stopAnimating]; //La paramos
+        self.photoView.image = [UIImage imageNamed:@"sinImagen.png"];
+    }
+}
+
 -(void) syncModelWithView { //Sincronizamos la vista con el modelo
     
     self.nameLabel.text = self.model.name;
@@ -102,7 +132,7 @@
     self.originLabel.text = self.model.origin;
     self.notesLabel.text = self.model.notes;
     [self.wineryNameLabel setTitle:[NSString stringWithFormat:@"%@ %@",self.model.wineCompanyName, @"🌐"] forState:UIControlStateNormal];
-    self.photoView.image = self.model.photo;
+    [self photo];
     self.grapesLabel.text = [self arrayToString: self.model.grapes]; //Llamamos al método ArrayToString y le pasamos nuestro array de uvas
     
     [self dispalyRating: self.model.rating]; //Llamamos al método displayRating y le pasamos nuestra puntuación

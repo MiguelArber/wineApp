@@ -93,7 +93,7 @@
     [self.activityView stopAnimating];
     [self.activityView setHidden:YES];
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"No se ha podido cargar el contenido:"
                                                     message:[error localizedDescription]
                                                    delegate:nil
                                           cancelButtonTitle:nil
@@ -107,7 +107,7 @@
 - (void)syncViewToModel
 {
     self.title = self.model.wineCompanyName; //Defino el título de la ventana como el nombre de la bodega
-    self.browser.delegate = self;//Definimos que él mismo es delegado de si mismo
+    self.browser.delegate = self; //Definimos que él mismo es delegado de si mismo
     [self.browser loadRequest:[NSURLRequest requestWithURL:self.model.wineCompanyWeb]]; //Cargamos la web del vino
 }
 

@@ -15,7 +15,7 @@
 
 @interface WineryModel : NSObject
 
-@property (strong, nonatomic) NSMutableArray *redWines; //Pasamos de NSArray a NSMutableArray
+@property (strong, nonatomic) NSMutableArray *redWines; //NSMutableArray
 @property (strong, nonatomic) NSMutableArray *whiteWines;
 @property (strong, nonatomic) NSMutableArray *otherWines;
 
